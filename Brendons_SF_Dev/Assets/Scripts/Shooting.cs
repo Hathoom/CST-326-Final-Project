@@ -6,7 +6,10 @@ public class Shooting : MonoBehaviour
 {
 
     public Bullet bullet;
+    public Bomb bomb;
+
     public Transform bullet_extrude_point;
+    public Transform bomb_extrude_point;
     public float velocity = 10.0f;
 
     // Start is called before the first frame update
@@ -24,5 +27,9 @@ public class Shooting : MonoBehaviour
             Instantiate(bullet,bullet_extrude_point.position,Quaternion.identity);
         }
 
+        // add the bomb section
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Instantiate(bomb,bomb_extrude_point.position,Quaternion.identity);
+        }
     }
 }
