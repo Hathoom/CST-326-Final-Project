@@ -9,12 +9,20 @@ public class Bullet : MonoBehaviour
     public float speed;
 
     public System.Action destroy;
+
+    public int deathTime = 1;
+    public int seconds = 0;
+    public float time = 0.0f;
    
 
     // Update is called once per frame
     void Update()
     {
         this.transform.position += this.dir * this.speed * Time.deltaTime;
+
+        reduceTime(Time.deltaTime);
+
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -23,5 +31,18 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void reduceTime(float reduce){
+
+        time += reduce;
+
+        seconds = (int)(time % 60);
+
+        if(seconds > deathTime )
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 }
