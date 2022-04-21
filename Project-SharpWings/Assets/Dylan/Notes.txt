@@ -1,0 +1,15 @@
+===Implemented for Milestone 1===
+
+-Player can move on the x-y plane within the limitation of the camera view/screen
+-Camera moves relative to the player's movement, but its "stuttery"
+
+=================================
+
+===Didnt finish in Milestone 1===
+
+-Player model doesn't rotate (tilt left or right) depending on x-input
+-Player model doesn't move smoothly with camera movement (NEEDS FIXING)
+
+=================================
+
+
