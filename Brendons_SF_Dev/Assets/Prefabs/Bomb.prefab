@@ -111,5 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 6118014707819352920}
-  dir: {x: 0, y: -1, z: 0}
+  dir: {x: 0, y: 0, z: -1}
   speed: 50
+  deathTime: 1
+  seconds: 0
+  time: 0
+  explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
