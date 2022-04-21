@@ -339,7 +339,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoGeneratePath: 1
 --- !u!65 &644252131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -756,13 +755,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab9c234b129b284ca4aa9c3077298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackPath: {fileID: 1580532094}
   enemies:
   - {fileID: 264598486}
   - {fileID: 410737367}
   - {fileID: 311157044}
-  enemySpeed: 10
-  dollyCart: {fileID: 0}
-  trackPath: {fileID: 1580532094}
+  enemySpeed: 5
+  autoGeneratePath: 1
+  randomCoordOffset: 10
+  minDistanceOffset: 10
+  maxDistanceOffset: 20
+  targetTrackOffset: 10
+  swoopDistance: 3
 --- !u!114 &2100447142
 MonoBehaviour:
   m_ObjectHideFlags: 0
