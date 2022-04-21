@@ -23,14 +23,6 @@ public class PlayerMovement : MonoBehaviour
     {
         movePlayer();
     }
-    
-    void LateUpdate()
-    {
-        Vector3 localPos = transform.localPosition;
-
-        transform.localPosition = new Vector3(Mathf.Clamp(localPos.x, -limits.x, limits.x), Mathf.Clamp(localPos.y, -limits.y, limits.y), localPos.z);
-    }
-
     private void movePlayer()
     {
         movement = _inputManager.getPlayerMovement();
