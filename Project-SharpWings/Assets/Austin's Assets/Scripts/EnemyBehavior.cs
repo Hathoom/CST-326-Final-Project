@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
@@ -27,6 +26,7 @@ public class EnemyBehavior : MonoBehaviour
     private void Start()
     {
         fireRate += fireRateOffset;
+        fireRate = Time.time;
         var center = groupParent.transform.position;
         transform.position = (transform.position - center).normalized * swarmRadius + center;
     }
@@ -47,7 +47,7 @@ public class EnemyBehavior : MonoBehaviour
         var distanceToTarget = toTarget.magnitude;
         var dot = Vector3.Dot(targetPosition, toTarget);
         
-        if (currentState == "Pathing" && (distanceToTarget < minTargetDistance || distanceToTarget > maxTargetDistance) && dot < 0)
+        if (currentState == "Pathing" && (distanceToTarget < minTargetDistance || distanceToTarget > maxTargetDistance || dot < 0))
         { 
             transform.LookAt(groupParent.transform.position + groupParent.transform.forward);
             _fireTimer = Time.time;

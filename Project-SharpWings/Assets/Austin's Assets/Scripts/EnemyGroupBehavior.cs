@@ -60,7 +60,9 @@ public class EnemyGroupBehavior : MonoBehaviour
             case "Swarming":
                 // if there are no longer any enemies, destroy self
                 if (!enemies.Any()) Destroy(gameObject);
+                
                 transform.position = _trackedObject.transform.position;
+                
                 break;
         }
         
@@ -134,7 +136,7 @@ public class EnemyGroupBehavior : MonoBehaviour
             enemy.currentState = _currentState;
 
             enemy.swarmRadius = swarmRadius;
-            enemy.rotationAxis = Random.insideUnitSphere;
+            enemy.rotationAxis = Random.insideUnitSphere; // todo: 
             enemy.rotationSpeed = rotationSpeed;
         }
         
