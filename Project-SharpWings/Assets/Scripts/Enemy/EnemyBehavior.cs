@@ -8,6 +8,9 @@ public class EnemyBehavior : MonoBehaviour
     [HideInInspector]
     public GameObject groupParent;
 
+    [HideInInspector] public GameObject bulletPrefab;
+    [HideInInspector] public float bulletSpeed;
+    
     [HideInInspector]
     public float fireRate, fireRateOffset;
     private float _fireTimer;
@@ -28,7 +31,9 @@ public class EnemyBehavior : MonoBehaviour
         fireRate += fireRateOffset;
         fireRate = Time.time;
         var center = groupParent.transform.position;
-        transform.position = (transform.position - center).normalized * swarmRadius + center;
+        var transformPosition = transform.position;
+        transformPosition = (Random.insideUnitSphere - center).normalized * swarmRadius + center;
+        transform.position = transformPosition;
     }
 
     private void Update()
@@ -60,8 +65,14 @@ public class EnemyBehavior : MonoBehaviour
         // fire
         if (Time.time - _fireTimer > fireRate)
         {
+            // Debug.Log("fire" + gameObject.name);
             _fireTimer = Time.time;
-            //Debug.Log("Fire");
+            var localTransform = transform;
+            Debug.Log(localTransform.position + groupParent.transform.position);
+            var bullet = Instantiate(bulletPrefab,
+                localTransform.TransformPoint(localTransform.forward),
+                localTransform.rotation).GetComponent<RudimentaryBullet>();
+            bullet.speed = bulletSpeed;
         }
     }
 }

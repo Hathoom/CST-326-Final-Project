@@ -11,6 +11,8 @@ public class EnemyGroupBehavior : MonoBehaviour
     [Header("Enemy Information")]
     [SerializeField] private List<EnemyBehavior> enemies;
     [SerializeField] private float enemyGroupSpeed;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float bulletSpeed;
     [SerializeField] private float enemyFireRate, randFireOffset;
     [SerializeField] private float minTargetDistance, maxTargetDistance;
 
@@ -112,6 +114,9 @@ public class EnemyGroupBehavior : MonoBehaviour
             enemy.swarmRadius = 1;
             enemy.rotationAxis = Random.insideUnitSphere;
             enemy.rotationSpeed = 60;
+
+            enemy.bulletPrefab = bulletPrefab;
+            enemy.bulletSpeed = bulletSpeed;
         }
 
         _dollyCart.m_Path = trackPath;
@@ -138,6 +143,9 @@ public class EnemyGroupBehavior : MonoBehaviour
             enemy.swarmRadius = swarmRadius;
             enemy.rotationAxis = Random.insideUnitSphere; // todo: 
             enemy.rotationSpeed = rotationSpeed;
+            
+            enemy.bulletPrefab = bulletPrefab;
+            enemy.bulletSpeed = bulletSpeed;
         }
         
     }

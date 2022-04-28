@@ -8,5 +8,6 @@ public class TriggerEnemies : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         triggerEvent?.Invoke(other.gameObject);
+        Destroy(gameObject);
     }
 }
