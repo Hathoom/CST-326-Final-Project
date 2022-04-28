@@ -18,7 +18,7 @@ public class rotatingItems : MonoBehaviour
     {
         //for when the powerup is to always face player
         // transform.LookAt(new Vector3(facing.position.x, transform.position.y, facing.position.z));
-        transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
+        transform.RotateAround(Vector3.zero, Vector3.up, 50 * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
