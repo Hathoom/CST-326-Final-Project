@@ -1,17 +1,21 @@
 using UnityEngine;
 
-public class RudimentaryBullet : MonoBehaviour
+namespace Enemy
 {
-    public float speed;
-
-    private void Start()
+    public class RudimentaryBullet : MonoBehaviour
     {
-        GetComponent<Rigidbody>().velocity = transform.forward  * speed;
-    }
+        public float speed;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.gameObject.CompareTag("Player")) return;
-        Destroy(gameObject);
+        private void Update()
+        {
+            var myTransform = transform;
+            myTransform.position += (myTransform.forward * (speed * Time.deltaTime));
+        }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            if (!collision.gameObject.CompareTag("Player")) return;
+            Destroy(gameObject);
+        }
     }
 }
