@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 3603094678308217691}
   - component: {fileID: 11990333408525352}
   - component: {fileID: 3611571536889712770}
-  - component: {fileID: 3603094678308217690}
+  - component: {fileID: 682493529145183806}
   - component: {fileID: 429929331120543086}
   m_Layer: 0
   m_Name: Player
@@ -129,7 +129,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3603094678308217690
+--- !u!114 &682493529145183806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,11 +138,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3603094678308217688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ef29e5350235140a39904c15af4976, type: 3}
+  m_Script: {fileID: 11500000, guid: 1abb49fb25ff0bc4986a6c945a3c185f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  limits: {x: 5, y: 3}
+  startFOV: 40
+  endFOV: 55
+  playerSpeed: 6
 --- !u!114 &429929331120543086
 MonoBehaviour:
   m_ObjectHideFlags: 0
