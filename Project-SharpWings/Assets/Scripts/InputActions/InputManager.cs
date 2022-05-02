@@ -41,5 +41,15 @@ public class InputManager : MonoBehaviour
     {
         return _playerControls.Player.Movement.ReadValue<Vector2>();
     }
+
+    public bool playerBoost()
+    {
+        return _playerControls.Player.Boost.IsPressed();
+    }
+
+    public bool playerBreak()
+    {
+        return _playerControls.Player.Break.IsPressed();
+    }
     
 }
