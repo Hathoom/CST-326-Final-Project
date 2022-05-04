@@ -107,7 +107,7 @@ namespace Enemy
             foreach (var enemy in enemies)
             {
                 enemy.gameObject.SetActive(true);
-                enemy.target = _trackedObject;
+                enemy.trackedObject = _trackedObject;
                 enemy.currentState = _currentState;
                 enemy.health = enemyHealth;
                 enemy.score = enemyScoreWorth;
@@ -140,7 +140,7 @@ namespace Enemy
             foreach (var enemy in enemies)
             {
                 enemy.gameObject.SetActive(true);
-                enemy.target = _trackedObject;
+                enemy.trackedObject = _trackedObject;
                 enemy.currentState = _currentState;
                 enemy.health = enemyHealth;
                 enemy.score = enemyScoreWorth;

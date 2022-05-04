@@ -4,7 +4,7 @@ namespace Enemy
 {
     public class EnemyBehavior : MonoBehaviour, IEnemy
     {
-        [HideInInspector] public GameObject target;
+        [HideInInspector] public GameObject trackedObject;
         [HideInInspector] public GameObject groupParent;
 
         [HideInInspector] public string currentState;
@@ -42,7 +42,7 @@ namespace Enemy
             thisPosition = desiredPosition;
 
             // check for range when pathing
-            var targetPosition = target.transform.position;
+            var targetPosition = trackedObject.transform.position;
             var toTarget = targetPosition - thisPosition;
             var distanceToTarget = toTarget.magnitude;
             var dot = Vector3.Dot(targetPosition, toTarget);
@@ -81,6 +81,9 @@ namespace Enemy
         }
 
         public float GetHealth() => health;
+        
         public int GetScore() => score;
+        
+        public void SetTarget(GameObject target) => trackedObject = target;
     }
 }
