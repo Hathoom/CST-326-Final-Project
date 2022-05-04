@@ -76,6 +76,7 @@ namespace Enemy
             if (health <= 0)
             {
                 // Die
+                Destroy(gameObject);
             }
         }
 

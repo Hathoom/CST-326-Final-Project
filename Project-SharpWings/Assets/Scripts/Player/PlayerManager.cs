@@ -57,6 +57,7 @@ public class PlayerManager : MonoBehaviour
         if (_health <= 0)
         {
             // Die
+            Destroy(gameObject);
         }
     }
 }

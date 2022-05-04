@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     private InputManager _inputManager;
     private CinemachineDollyCart cmCart;
-    private CinemachineVirtualCamera vCam;
+    public CinemachineVirtualCamera vCam;
     
     // variable to store input direction
     private Vector2 movement;
@@ -25,8 +25,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _inputManager = InputManager.createInstance();
-        cmCart = GameObject.Find("GameTrack").GetComponent<CinemachineDollyCart>();
-        vCam = GameObject.Find("vCam_1").GetComponent<CinemachineVirtualCamera>();
+        cmCart = transform.parent.GetComponent<CinemachineDollyCart>();
     }
 
     // Update is called once per frame
