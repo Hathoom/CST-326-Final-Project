@@ -44,7 +44,7 @@ namespace Enemy
                 var localTransform = transform;
                 var bullet = Instantiate(bulletPrefab,
                     transform.position + transform.forward,
-                    localTransform.rotation).GetComponent<RudimentaryBullet>();
+                    localTransform.rotation).GetComponent<EnemyBullet>();
                 bullet.speed = bulletSpeed;
             }
         }

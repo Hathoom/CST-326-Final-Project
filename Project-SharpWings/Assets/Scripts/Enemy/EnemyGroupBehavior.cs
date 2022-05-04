@@ -14,7 +14,7 @@ namespace Enemy
         [SerializeField] private List<EnemyBehavior> enemies;
         [SerializeField] private float enemyGroupSpeed;
         [SerializeField] private GameObject bulletPrefab;
-        [SerializeField] private float bulletSpeed;
+        [SerializeField] private float bulletSpeed, bulletDamage;
         [SerializeField] private float enemyFireRate, randFireOffset;
         [SerializeField] private float minTargetDistance, maxTargetDistance;
 
@@ -119,6 +119,7 @@ namespace Enemy
 
                 enemy.bulletPrefab = bulletPrefab;
                 enemy.bulletSpeed = bulletSpeed;
+                enemy.bulletDamage = bulletDamage;
             }
 
             _dollyCart.m_Path = trackPath;
@@ -148,6 +149,7 @@ namespace Enemy
             
                 enemy.bulletPrefab = bulletPrefab;
                 enemy.bulletSpeed = bulletSpeed;
+                enemy.bulletDamage = bulletDamage;
             }
         
         }

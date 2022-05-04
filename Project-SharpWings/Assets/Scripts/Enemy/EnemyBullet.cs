@@ -2,9 +2,10 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class RudimentaryBullet : MonoBehaviour
+    public class EnemyBullet : MonoBehaviour
     {
         public float speed;
+        public float damage;
 
         private void Update()
         {
@@ -14,7 +15,16 @@ namespace Enemy
 
         private void OnCollisionStay(Collision collision)
         {
-            if (!collision.gameObject.CompareTag("Player")) return;
+            var player = collision.gameObject.GetComponent<PlayerManager>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
+            else
+            {
+                // whiff explode
+            }
+            
             Destroy(gameObject);
         }
     }

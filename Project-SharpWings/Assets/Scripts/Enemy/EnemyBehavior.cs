@@ -2,31 +2,24 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyBehavior : MonoBehaviour
+    public class EnemyBehavior : MonoBehaviour, IEnemy
     {
-        [HideInInspector]
-        public GameObject target;
-
-        [HideInInspector]
-        public GameObject groupParent;
+        [HideInInspector] public GameObject target;
+        [HideInInspector] public GameObject groupParent;
 
         [HideInInspector] public GameObject bulletPrefab;
-        [HideInInspector] public float bulletSpeed;
-    
-        [HideInInspector]
-        public float fireRate, fireRateOffset;
+        [HideInInspector] public float bulletSpeed, bulletDamage;
+        [HideInInspector] public float fireRate, fireRateOffset;
+        [HideInInspector] public float minTargetDistance, maxTargetDistance;
         private float _fireTimer;
-        [HideInInspector]
-        public float minTargetDistance, maxTargetDistance;
     
-        [HideInInspector]
-        public string currentState;
-    
+        [HideInInspector] public string currentState;
+
+        [HideInInspector] public float health;
+        
         // swarming stuff
-        [HideInInspector] 
-        public float swarmRadius, rotationSpeed;
-        [HideInInspector]
-        public Vector3 rotationAxis;
+        [HideInInspector] public float swarmRadius, rotationSpeed;
+        [HideInInspector] public Vector3 rotationAxis;
 
         private void Start()
         {
@@ -70,8 +63,18 @@ namespace Enemy
                 var localTransform = transform;
                 var bullet = Instantiate(bulletPrefab,
                     groupParent.transform.position,
-                    localTransform.rotation).GetComponent<RudimentaryBullet>();
+                    localTransform.rotation).GetComponent<EnemyBullet>();
                 bullet.speed = bulletSpeed;
+                bullet.damage = bulletDamage;
+            }
+        }
+
+        public void TakeDamage(float damage)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                // Die
             }
         }
     }

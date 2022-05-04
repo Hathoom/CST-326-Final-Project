@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,42 +6,28 @@ public class Bullet : MonoBehaviour
 
     public Vector3 dir;
     public float speed;
+    public float damage;
 
-    public System.Action destroy;
+    public float deathTime = 1;
+    private float _seconds;
+    private float _deathTimer;
 
-    public int deathTime = 1;
-    public int seconds = 0;
-    public float time = 0.0f;
-   
+    private void Start()
+    {
+        _deathTimer = Time.time;
+    }
 
-    // Update is called once per frame
     void Update()
     {
-        this.transform.position += this.dir * this.speed * Time.deltaTime;
+        transform.position += dir * speed * Time.deltaTime;
 
-        reduceTime(Time.deltaTime);
-
-
+        if (Time.time - _deathTimer > deathTime) Destroy(gameObject);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (transform.tag == "Area_Around_Player")
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    public void reduceTime(float reduce){
-
-        time += reduce;
-
-        seconds = (int)(time % 60);
-
-        if(seconds > deathTime )
-        {
-            Destroy(this.gameObject);
-        }
-
+        var enemy = collision.gameObject.GetComponent<IEnemy>();
+        enemy?.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }
