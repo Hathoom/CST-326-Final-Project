@@ -36,13 +36,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (_inputManager.playerBoost())
         {
-            Debug.Log("Player is boosting RN");
             cmCart.m_Speed = 12;
             playerSpeed = 12;
             vCam.m_Lens.FieldOfView = Mathf.Lerp(vCam.m_Lens.FieldOfView, endFOV, 10 * Time.deltaTime);
         }else if (_inputManager.playerBreak())
         {
-            Debug.Log("Player is breaking RN");
             cmCart.m_Speed = 3;
             playerSpeed = 3;
             vCam.m_Lens.FieldOfView = Mathf.Lerp(vCam.m_Lens.FieldOfView, startFOV*0.8f, 10 * Time.deltaTime);
@@ -57,8 +55,7 @@ public class PlayerMovement : MonoBehaviour
     private void movePlayer()
     {
         movement = _inputManager.getPlayerMovement();
-        Debug.Log(movement);
-        
+
         transform.localPosition += new Vector3(movement.x, movement.y, 0f) * playerSpeed * Time.deltaTime;
         clampPosition();
     }
