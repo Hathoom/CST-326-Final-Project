@@ -7,16 +7,17 @@ namespace Enemy
         [HideInInspector] public GameObject target;
         [HideInInspector] public GameObject groupParent;
 
+        [HideInInspector] public string currentState;
+        [HideInInspector] public float health;
+        [HideInInspector] public int score;
+
+        // bullet stuff
         [HideInInspector] public GameObject bulletPrefab;
         [HideInInspector] public float bulletSpeed, bulletDamage;
         [HideInInspector] public float fireRate, fireRateOffset;
         [HideInInspector] public float minTargetDistance, maxTargetDistance;
         private float _fireTimer;
     
-        [HideInInspector] public string currentState;
-
-        [HideInInspector] public float health;
-        
         // swarming stuff
         [HideInInspector] public float swarmRadius, rotationSpeed;
         [HideInInspector] public Vector3 rotationAxis;
@@ -77,5 +78,8 @@ namespace Enemy
                 // Die
             }
         }
+
+        public float GetHealth() => health;
+        public int GetScore() => score;
     }
 }

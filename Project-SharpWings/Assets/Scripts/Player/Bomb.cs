@@ -1,31 +1,32 @@
-using System;
+using Enemy;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public Vector3 dir;
+    public Vector3 direction;
     public float speed;
-
-    public float radius = 4f;
-    public float explosionForce = 700f;
-
-    public int deathTime = 1;
-    private float _deathTimer;
-
-    private bool _hasExploded;
+    public float damage;
+    public float radius;
+    public float force;
+    public float delay;
+    
+    private float _explosionTimer;
 
     public GameObject explosionEffect;
 
+    public delegate void EnemyDeath(int score);
+    public event EnemyDeath OnEnemyDeath;
+    
     private void Start()
     {
-        _deathTimer = Time.time;
+        _explosionTimer = Time.time;
     }
 
-    void Update()
+    private void Update()
     {
-        transform.position += dir * speed * Time.deltaTime;
+        transform.position += direction * (speed * Time.deltaTime);
 
-        if (Time.time - _deathTimer > deathTime)
+        if (Time.time - _explosionTimer > delay)
         {
             Explode();
         }
@@ -33,30 +34,34 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy")){
-            Destroy(gameObject);
-        }
+        Explode();
     }
 
-    void Explode()
+    private void Explode()
     {
         //show effect
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        Instantiate(explosionEffect, transform);
 
         // get nearby objects
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        var colliders = Physics.OverlapSphere(transform.position, radius);
 
-        foreach (Collider nearbyObject in colliders)
+        foreach (var nearbyObject in colliders)
         {
             //add force
             
-            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            var rb = nearbyObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.AddExplosionForce(explosionForce, transform.position,radius);
+                rb.AddExplosionForce(force, transform.position, radius);
             }
 
             //Damage
+            var enemy = nearbyObject.GetComponent<IEnemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                if (enemy.GetHealth() <= 0) OnEnemyDeath?.Invoke(enemy.GetScore());
+            }
         }
 
         //remove bomb

@@ -17,6 +17,8 @@ namespace Enemy
         [SerializeField] private float bulletSpeed, bulletDamage;
         [SerializeField] private float enemyFireRate, randFireOffset;
         [SerializeField] private float minTargetDistance, maxTargetDistance;
+        [SerializeField] private float enemyHealth;
+        [SerializeField] private int enemyScoreWorth;
 
         [Header("Automatic Path Generation")]
         [SerializeField] private bool autoGeneratePath = true;
@@ -106,20 +108,23 @@ namespace Enemy
             {
                 enemy.gameObject.SetActive(true);
                 enemy.target = _trackedObject;
-                enemy.minTargetDistance = minTargetDistance;
-                enemy.maxTargetDistance = maxTargetDistance;
+                enemy.currentState = _currentState;
+                enemy.health = enemyHealth;
+                enemy.score = enemyScoreWorth;
+                
+                enemy.groupParent = gameObject;
                 enemy.fireRate = enemyFireRate;
                 enemy.fireRateOffset = Random.Range(0, randFireOffset);
-                enemy.groupParent = gameObject;
-                enemy.currentState = _currentState;
+                enemy.minTargetDistance = minTargetDistance;
+                enemy.maxTargetDistance = maxTargetDistance;
+                enemy.bulletPrefab = bulletPrefab;
+                enemy.bulletSpeed = bulletSpeed;
+                enemy.bulletDamage = bulletDamage;
 
                 enemy.swarmRadius = 1;
                 enemy.rotationAxis = Random.insideUnitSphere;
                 enemy.rotationSpeed = 60;
 
-                enemy.bulletPrefab = bulletPrefab;
-                enemy.bulletSpeed = bulletSpeed;
-                enemy.bulletDamage = bulletDamage;
             }
 
             _dollyCart.m_Path = trackPath;
@@ -136,20 +141,22 @@ namespace Enemy
             {
                 enemy.gameObject.SetActive(true);
                 enemy.target = _trackedObject;
-                enemy.minTargetDistance = minTargetDistance;
-                enemy.maxTargetDistance = maxTargetDistance;
+                enemy.currentState = _currentState;
+                enemy.health = enemyHealth;
+                enemy.score = enemyScoreWorth;
+                
+                enemy.groupParent = gameObject;
                 enemy.fireRate = enemyFireRate;
                 enemy.fireRateOffset = Random.Range(0, randFireOffset);
-                enemy.groupParent = gameObject;
-                enemy.currentState = _currentState;
+                enemy.minTargetDistance = minTargetDistance;
+                enemy.maxTargetDistance = maxTargetDistance;
+                enemy.bulletPrefab = bulletPrefab;
+                enemy.bulletSpeed = bulletSpeed;
+                enemy.bulletDamage = bulletDamage;
 
                 enemy.swarmRadius = swarmRadius;
                 enemy.rotationAxis = Random.insideUnitSphere; // todo: 
                 enemy.rotationSpeed = rotationSpeed;
-            
-                enemy.bulletPrefab = bulletPrefab;
-                enemy.bulletSpeed = bulletSpeed;
-                enemy.bulletDamage = bulletDamage;
             }
         
         }

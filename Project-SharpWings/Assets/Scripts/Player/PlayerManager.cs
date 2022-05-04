@@ -1,5 +1,6 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -7,7 +8,21 @@ public class PlayerManager : MonoBehaviour
     public float maxHealth = 100f;
     private float _health;
 
-    [Header("UI")] private Slider _healthSlider;
+    [Header("UI")] 
+    [SerializeField] private Slider healthSlider;
+    [SerializeField] private TextMeshProUGUI bombCounter;
+    [SerializeField] private TextMeshProUGUI scoreCounter;
+
+    private PlayerCombat _playerCombat;
+
+    private void Awake()
+    {
+        if (healthSlider == null) Debug.LogWarning("Player health slider is unassigned!");
+        if (bombCounter == null) Debug.LogWarning("Player bomb counter is unassigned!");
+        if (scoreCounter == null) Debug.LogWarning("Player score counter is unassigned!");
+        _playerCombat = GetComponent<PlayerCombat>();
+        if (_playerCombat == null) Debug.LogWarning("Player combat system can't be found!");
+    }
 
     private void Start()
     {
@@ -21,17 +36,20 @@ public class PlayerManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        var targetHealth = _healthSlider.value = _health / maxHealth;
-        _healthSlider.value = Mathf.Lerp(_healthSlider.value, targetHealth, Time.deltaTime * 5);
+        var targetHealth = healthSlider.value = _health / maxHealth;
+        healthSlider.value = Mathf.Lerp(healthSlider.value, targetHealth, Time.deltaTime * 5);
+        
+        bombCounter.text = _playerCombat.GetBombCount().ToString();
+        scoreCounter.text = _playerCombat.GetScore().ToString();
     }
     
-    public void GainHealth(float health) => _health -= health;
+    // public void GainHealth(float health) => _health -= health;
 
-    public void GainMaxHealth(float health)
-    {
-        maxHealth += health;
-        GainHealth(health);
-    }
+    // public void GainMaxHealth(float health)
+    // {
+    //     maxHealth += health;
+    //     _health += health;
+    // }
     
     public void TakeDamage(float damage)
     {
