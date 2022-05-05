@@ -2,10 +2,12 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class StationaryEnemyBehavior : MonoBehaviour
+    public class StationaryEnemyBehavior : MonoBehaviour, IEnemy
     {
-        public GameObject target;
-
+        public GameObject trackedObject;
+        public float health;
+        public int score;
+        
         public GameObject bulletPrefab;
         public float bulletSpeed;
     
@@ -22,7 +24,7 @@ namespace Enemy
         {
             var thisPosition = transform.position;
             // check for range when pathing
-            var targetPosition = target.transform.position;
+            var targetPosition = trackedObject.transform.position;
             var toTarget = targetPosition - thisPosition;
             var distanceToTarget = toTarget.magnitude;
         
@@ -44,9 +46,24 @@ namespace Enemy
                 var localTransform = transform;
                 var bullet = Instantiate(bulletPrefab,
                     transform.position + transform.forward,
-                    localTransform.rotation).GetComponent<RudimentaryBullet>();
+                    localTransform.rotation).GetComponent<EnemyBullet>();
                 bullet.speed = bulletSpeed;
             }
         }
+        
+        public void TakeDamage(float damage)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                // Die
+                Destroy(gameObject);
+            }
+        }
+
+        public float GetHealth() => health;
+        public int GetScore() => score;
+        
+        public void SetTarget(GameObject target) => trackedObject = target;
     }
 }
