@@ -66,11 +66,15 @@ MonoBehaviour:
   enemies: []
   enemyGroupSpeed: 20
   bulletPrefab: {fileID: 2745272553034977310, guid: 80747a28e7890694aa2af215ee897578, type: 3}
-  bulletSpeed: 0
+  bulletSpeed: 20
+  bulletDamage: 10
+  bulletLifetime: 3
   enemyFireRate: 1
   randFireOffset: 5
   minTargetDistance: 5
   maxTargetDistance: 300
+  enemyHealth: 1
+  enemyScoreWorth: 100
   autoGeneratePath: 1
   randomCoordOffset: 10
   minDistanceOffset: 50

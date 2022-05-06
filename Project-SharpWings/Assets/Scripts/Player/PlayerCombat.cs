@@ -32,7 +32,8 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time - _fireRateTimer > fireRate)
         {
             _fireRateTimer = Time.time;
-            var bullet = Instantiate(bulletPrefab, bulletExtrudePoint.position, bulletPrefab.transform.rotation).GetComponent<Bullet>();
+            var bullet = Instantiate(bulletPrefab, bulletExtrudePoint.position, 
+                transform.rotation * bulletPrefab.transform.rotation).GetComponent<Bullet>();
             bullet.speed = bulletSpeed;
             bullet.damage = bulletDamage;
             bullet.lifeTime = bulletLifetime;

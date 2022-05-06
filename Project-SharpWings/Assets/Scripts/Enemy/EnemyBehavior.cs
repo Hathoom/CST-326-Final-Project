@@ -13,7 +13,7 @@ namespace Enemy
 
         // bullet stuff
         [HideInInspector] public GameObject bulletPrefab;
-        [HideInInspector] public float bulletSpeed, bulletDamage;
+        [HideInInspector] public float bulletSpeed, bulletDamage, bulletLifetime;
         [HideInInspector] public float fireRate, fireRateOffset;
         [HideInInspector] public float minTargetDistance, maxTargetDistance;
         private float _fireTimer;
@@ -63,10 +63,12 @@ namespace Enemy
                 _fireTimer = Time.time;
                 var localTransform = transform;
                 var bullet = Instantiate(bulletPrefab,
-                    groupParent.transform.position,
-                    localTransform.rotation).GetComponent<EnemyBullet>();
+                    localTransform.position,
+                    bulletPrefab.transform.rotation * localTransform.rotation).GetComponent<EnemyBullet>();
                 bullet.speed = bulletSpeed;
                 bullet.damage = bulletDamage;
+                bullet.direction = localTransform.forward;
+                bullet.lifeTime = bulletLifetime;
             }
         }
 

@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public Vector3 direction;
-    public float speed;
-    public float damage;
-    public float radius;
-    public float force;
-    public float delay;
-    
+    [HideInInspector] public Vector3 direction;
+    [HideInInspector] public float speed;
+    [HideInInspector] public float damage;
+    [HideInInspector] public float radius;
+    [HideInInspector]  public float force;
+    [HideInInspector] public float delay;
     private float _explosionTimer;
-
     public GameObject explosionEffect;
 
     public delegate void EnemyDeath(int score);

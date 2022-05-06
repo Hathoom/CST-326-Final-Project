@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9090592543207705802}
   - component: {fileID: 9090592543207705797}
   - component: {fileID: 9090592543207705796}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 9090592544437841337}
   - component: {fileID: 9090592544437841343}
   - component: {fileID: 9090592544437841342}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Exploding Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,12 +241,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedObject: {fileID: 0}
+  meshes:
+  - {fileID: 9090592544437841338}
+  - {fileID: 9090592543207705797}
+  health: 0
+  score: 0
   moveSpeed: 1
   maxTargetingDistance: 30
   maxExplodeDistance: 5
   explosionRadius: 10
   explosionGrowthSpeed: 20
+  explosionDamage: 0
   explosionLingerTiming: 2
-  meshes:
-  - {fileID: 9090592544437841338}
-  - {fileID: 9090592543207705797}

@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Vector3 direction;
-    public float speed;
-    public float damage;
-
-    public float lifeTime;
+    [HideInInspector] public Vector3 direction;
+    [HideInInspector] public float speed;
+    [HideInInspector] public float damage;
+    [HideInInspector] public float lifeTime;
     private float _seconds;
     private float _deathTimer;
 
@@ -28,7 +27,6 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         var enemy = collision.gameObject.GetComponent<IEnemy>();
         if (enemy != null)
         {

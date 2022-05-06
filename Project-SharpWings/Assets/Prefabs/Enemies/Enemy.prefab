@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9164932863076803512}
   - component: {fileID: 1806401875256323415}
   - component: {fileID: 3207673268963501340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 8978762752785054645}
   - component: {fileID: -4519191543811271374}
   - component: {fileID: 5656868924830161553}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0b2fbc2088d3e4abe4ae131345dad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  trackedObject: {fileID: 0}
   groupParent: {fileID: 0}
   currentState: 
   health: 0

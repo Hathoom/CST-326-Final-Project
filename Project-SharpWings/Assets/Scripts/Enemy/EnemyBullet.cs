@@ -4,27 +4,33 @@ namespace Enemy
 {
     public class EnemyBullet : MonoBehaviour
     {
-        public float speed;
-        public float damage;
+        [HideInInspector] public Vector3 direction;
+        [HideInInspector] public float speed;
+        [HideInInspector] public float damage;
+        [HideInInspector] public float lifeTime;
+        private float _seconds;
+        private float _deathTimer;
 
-        private void Update()
+        private void Start()
         {
-            var myTransform = transform;
-            myTransform.position += (myTransform.forward * (speed * Time.deltaTime));
+            _deathTimer = Time.time;
         }
+
+        void Update()
+        {
+            transform.position += direction * speed * Time.deltaTime;
+
+            if (Time.time - _deathTimer > lifeTime) Destroy(gameObject);
+        }
+
 
         private void OnCollisionStay(Collision collision)
         {
             var player = collision.gameObject.GetComponent<PlayerManager>();
             if (player != null)
-            {
+            {            
                 player.TakeDamage(damage);
             }
-            else
-            {
-                // whiff explode
-            }
-            
             Destroy(gameObject);
         }
     }
