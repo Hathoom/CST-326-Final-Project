@@ -130,6 +130,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1007792573493517332, guid: ba4aaaf0279a76841a78eb5309d3479e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
     - target: {fileID: 1000437560607364997, guid: ba4aaaf0279a76841a78eb5309d3479e, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -238,6 +241,12 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3360770370862434050, guid: ba4aaaf0279a76841a78eb5309d3479e, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 0.8543046
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba4aaaf0279a76841a78eb5309d3479e, type: 3}
     - target: {fileID: 4599930734432582447, guid: ba4aaaf0279a76841a78eb5309d3479e, type: 3}
       propertyPath: m_Size.z
       value: 3
@@ -799,6 +808,8 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &943430946
+PrefabInstance:
   m_GameObject: {fileID: 386765816}
   m_CullTransparentMesh: 1
 --- !u!114 &394830468 stripped
@@ -1086,6 +1097,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7351857256776426471, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351857256776426471, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351857256776426471, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351857256776426471, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
+      propertyPath: enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
+--- !u!1001 &1340203503
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66eb73eef413fd248863c2d5ca681e26, type: 3}
 --- !u!4 &940483483 stripped
