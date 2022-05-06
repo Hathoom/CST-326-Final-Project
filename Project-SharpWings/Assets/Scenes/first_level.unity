@@ -277,7 +277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24569892}
   m_LocalRotation: {x: -0, y: -0.39325678, z: -0, w: 0.91942877}
-  m_LocalPosition: {x: -49.35722, y: -18.330399, z: -91.93598}
+  m_LocalPosition: {x: -48.66, y: -18.330399, z: -91.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1086,7 +1086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7351857256776426470, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4700031
+      value: -1.9494934
       objectReference: {fileID: 0}
     - target: {fileID: 7351857256776426470, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1094,11 +1094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7351857256776426470, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42.140007
+      value: 42.116962
       objectReference: {fileID: 0}
     - target: {fileID: 7351857256776426470, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.000000059604638
+      value: 0.04800441
       objectReference: {fileID: 0}
     - target: {fileID: 7351857256776426470, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1106,7 +1106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7351857256776426470, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.9988471
       objectReference: {fileID: 0}
     - target: {fileID: 7351857256776426470, guid: e7fe595ff35b01749a26f6eb3cbfcac3, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -2534,7 +2534,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -3402,7 +3402,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -3612,7 +3612,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -3673,7 +3673,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -4222,7 +4222,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -4564,14 +4564,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154051437}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.47, y: -0, z: 37.14}
+  m_LocalRotation: {x: -0, y: 0.9988472, z: -0, w: 0.04800438}
+  m_LocalPosition: {x: -1.4700031, y: 0, z: 37.140003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 24569893}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 174.497, z: 0}
 --- !u!114 &1154051439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4587,7 +4587,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -6251,7 +6251,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -6710,7 +6710,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -6843,7 +6843,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -8008,6 +8008,18 @@ PrefabInstance:
     - target: {fileID: 5264764803576341174, guid: 3142000e5310f244db268a104d905698, type: 3}
       propertyPath: m_Waypoints.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264764803576341174, guid: 3142000e5310f244db268a104d905698, type: 3}
+      propertyPath: m_Appearance.inactivePathColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264764803576341174, guid: 3142000e5310f244db268a104d905698, type: 3}
+      propertyPath: m_Appearance.inactivePathColor.g
+      value: 0.98536944
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264764803576341174, guid: 3142000e5310f244db268a104d905698, type: 3}
+      propertyPath: m_Appearance.inactivePathColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5264764803576341174, guid: 3142000e5310f244db268a104d905698, type: 3}
       propertyPath: m_Waypoints.Array.data[0].position.x

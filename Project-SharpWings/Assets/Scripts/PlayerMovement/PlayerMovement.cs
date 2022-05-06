@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
     private void movePlayer()
     {
         movement = _inputManager.getPlayerMovement();
-
         transform.localPosition += new Vector3(movement.x, movement.y, 0f) * playerSpeed * Time.deltaTime;
         clampPosition();
     }
