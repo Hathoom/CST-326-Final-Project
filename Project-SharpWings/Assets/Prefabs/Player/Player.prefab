@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 3603094678308217691}
   - component: {fileID: 11990333408525352}
   - component: {fileID: 3611571536889712770}
+  - component: {fileID: 5369248418854970314}
   - component: {fileID: 682493529145183806}
   - component: {fileID: 429929331120543086}
   m_Layer: 0
@@ -129,6 +130,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5369248418854970314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3603094678308217688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cdc6f829eea524cb5d8632dd82587f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!114 &682493529145183806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,11 +170,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6534fc7bf398df49871d910e2c1f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 984476431586966247, guid: 28908ace65b1f154dacc512e6312d8e6, type: 3}
-  bomb: {fileID: 6118014707819352920, guid: ff87b4730eb56f04ea8d8ccc2a1c33cd, type: 3}
-  bullet_extrude_point: {fileID: 1062231873476917944}
-  bomb_extrude_point: {fileID: 1237866827162075618}
-  velocity: 10
+  bulletExtrudePoint: {fileID: 0}
+  bombExtrudePoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletDamage: 0
+  bulletSpeed: 0
+  fireRate: 0
+  bomb: {fileID: 0}
+  startingBombCount: 0
 --- !u!1001 &3061252513231178725
 PrefabInstance:
   m_ObjectHideFlags: 0

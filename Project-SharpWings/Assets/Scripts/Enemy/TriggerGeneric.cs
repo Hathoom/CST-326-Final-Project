@@ -10,6 +10,7 @@ namespace Enemy
 
         private void OnTriggerEnter(Collider other)
         {
+            if (!other.gameObject.CompareTag("Player")) return;
             triggerEvent?.Invoke(other.gameObject);
             if (killSelfAfterTrigger) Destroy(gameObject);
         }

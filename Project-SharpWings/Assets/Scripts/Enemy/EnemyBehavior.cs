@@ -2,31 +2,25 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyBehavior : MonoBehaviour
+    public class EnemyBehavior : MonoBehaviour, IEnemy
     {
-        [HideInInspector]
-        public GameObject target;
+        [HideInInspector] public GameObject trackedObject;
+        [HideInInspector] public GameObject groupParent;
 
-        [HideInInspector]
-        public GameObject groupParent;
+        [HideInInspector] public string currentState;
+        [HideInInspector] public float health;
+        [HideInInspector] public int score;
 
+        // bullet stuff
         [HideInInspector] public GameObject bulletPrefab;
-        [HideInInspector] public float bulletSpeed;
-    
-        [HideInInspector]
-        public float fireRate, fireRateOffset;
+        [HideInInspector] public float bulletSpeed, bulletDamage;
+        [HideInInspector] public float fireRate, fireRateOffset;
+        [HideInInspector] public float minTargetDistance, maxTargetDistance;
         private float _fireTimer;
-        [HideInInspector]
-        public float minTargetDistance, maxTargetDistance;
-    
-        [HideInInspector]
-        public string currentState;
     
         // swarming stuff
-        [HideInInspector] 
-        public float swarmRadius, rotationSpeed;
-        [HideInInspector]
-        public Vector3 rotationAxis;
+        [HideInInspector] public float swarmRadius, rotationSpeed;
+        [HideInInspector] public Vector3 rotationAxis;
 
         private void Start()
         {
@@ -48,7 +42,7 @@ namespace Enemy
             thisPosition = desiredPosition;
 
             // check for range when pathing
-            var targetPosition = target.transform.position;
+            var targetPosition = trackedObject.transform.position;
             var toTarget = targetPosition - thisPosition;
             var distanceToTarget = toTarget.magnitude;
             var dot = Vector3.Dot(targetPosition, toTarget);
@@ -70,9 +64,26 @@ namespace Enemy
                 var localTransform = transform;
                 var bullet = Instantiate(bulletPrefab,
                     groupParent.transform.position,
-                    localTransform.rotation).GetComponent<RudimentaryBullet>();
+                    localTransform.rotation).GetComponent<EnemyBullet>();
                 bullet.speed = bulletSpeed;
+                bullet.damage = bulletDamage;
             }
         }
+
+        public void TakeDamage(float damage)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                // Die
+                Destroy(gameObject);
+            }
+        }
+
+        public float GetHealth() => health;
+        
+        public int GetScore() => score;
+        
+        public void SetTarget(GameObject target) => trackedObject = target;
     }
 }

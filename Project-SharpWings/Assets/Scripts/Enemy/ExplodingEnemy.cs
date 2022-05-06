@@ -1,18 +1,21 @@
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class ExplodingEnemy : MonoBehaviour
+    public class ExplodingEnemy : MonoBehaviour, IEnemy
     {
+        [Header("General")]
         [SerializeField] private GameObject trackedObject;
+        [SerializeField] private List<MeshRenderer> meshes;
+        [SerializeField] private float health;
+        [SerializeField] private int score;
         [SerializeField] private float moveSpeed;
         [SerializeField] private float maxTargetingDistance, maxExplodeDistance;
-        [SerializeField] private float explosionRadius, explosionGrowthSpeed;
+        [SerializeField] private float explosionRadius, explosionGrowthSpeed, explosionDamage;
         [SerializeField] private float explosionLingerTiming;
-        [SerializeField] private List<MeshRenderer> meshes;
 
+        
         private Transform _transform;
         private SphereCollider _explosionCollider;
         private CapsuleCollider _capsuleCollider;
@@ -78,6 +81,7 @@ namespace Enemy
             {
                 meshRenderer.enabled = false;
             }
+            
             _capsuleCollider.enabled = false;
             _explosionCollider.enabled = true;
             _currentState = "Exploding";
@@ -85,7 +89,32 @@ namespace Enemy
 
         private void OnTriggerStay(Collider other)
         {
-            Debug.Log("EXPLOSION!");
+            if (_currentState != "Exploding")
+            {
+                Explode();
+            }
+            else
+            {
+                var player = other.gameObject.GetComponent<PlayerManager>();
+                player?.TakeDamage(explosionDamage);
+                _explosionCollider.enabled = false;
+            }
         }
+        
+        public void TakeDamage(float damage)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                // Die
+                Destroy(gameObject);
+            }
+        }
+
+        public float GetHealth() => health;
+        
+        public int GetScore() => score;
+
+        public void SetTarget(GameObject target) => trackedObject = target;
     }
 }

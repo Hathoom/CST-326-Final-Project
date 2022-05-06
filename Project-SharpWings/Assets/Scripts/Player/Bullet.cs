@@ -1,48 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    public Vector3 dir;
+    public Vector3 direction;
     public float speed;
+    public float damage;
 
-    public System.Action destroy;
+    public float lifeTime;
+    private float _seconds;
+    private float _deathTimer;
 
-    public int deathTime = 1;
-    public int seconds = 0;
-    public float time = 0.0f;
-   
+    public delegate void EnemyDeath(int score);
+    public event EnemyDeath OnEnemyDeath;
+    
+    private void Start()
+    {
+        _deathTimer = Time.time;
+    }
 
-    // Update is called once per frame
     void Update()
     {
-        this.transform.position += this.dir * this.speed * Time.deltaTime;
+        transform.position += direction * speed * Time.deltaTime;
 
-        reduceTime(Time.deltaTime);
-
-
+        if (Time.time - _deathTimer > lifeTime) Destroy(gameObject);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (transform.tag == "Area_Around_Player")
+        Debug.Log(collision.gameObject.name);
+        var enemy = collision.gameObject.GetComponent<IEnemy>();
+        if (enemy != null)
         {
-            Destroy(this.gameObject);
+            enemy.TakeDamage(damage);
+            if (enemy.GetHealth() <= 0) OnEnemyDeath?.Invoke(enemy.GetScore());
         }
-    }
-
-    public void reduceTime(float reduce){
-
-        time += reduce;
-
-        seconds = (int)(time % 60);
-
-        if(seconds > deathTime )
-        {
-            Destroy(this.gameObject);
-        }
-
+        Destroy(gameObject);
     }
 }
