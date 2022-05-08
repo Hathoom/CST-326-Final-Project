@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player
@@ -19,10 +20,24 @@ namespace Player
         [SerializeField] private int startingBombCount;
         private int _bombCount;
 
+        [Header("Audio")]
+        [SerializeField] private AudioClip shootEffect;
+        [SerializeField] private AudioClip bombShootEffect;
+        private AudioSource _shootAudio;
+        private AudioSource _bombAudio;
+        
         private int _playerScore;
-    
+
+        private void Awake()
+        {
+            _shootAudio = bulletExtrudePoint.GetComponent<AudioSource>();
+            _bombAudio = bombExtrudePoint.GetComponent<AudioSource>();
+        }
+
         private void Start()
         {
+            ChangeShootSound(shootEffect);
+            ChangeBombSound(bombShootEffect);
             _fireRateTimer = Time.time;
             _bombCount = startingBombCount;
             _playerScore = 0;
@@ -41,6 +56,7 @@ namespace Player
                 bullet.lifeTime = bulletLifetime;
                 bullet.direction = transform.forward;
                 bullet.OnEnemyDeath += AddScore;
+                _shootAudio.Play();
             }
 
             // add the bomb section
@@ -55,6 +71,7 @@ namespace Player
                 bomb.radius = explosionRadius;
                 bomb.direction = transform.forward;
                 bomb.OnEnemyDeath += AddScore;
+                _bombAudio.Play();
             }
         }
 
@@ -63,5 +80,8 @@ namespace Player
         public int GetScore() => _playerScore;
 
         public int GetBombCount() => _bombCount;
+
+        public void ChangeShootSound(AudioClip audioClip) => _shootAudio.clip = audioClip;
+        public void ChangeBombSound(AudioClip audioClip) => _bombAudio.clip = audioClip;
     }
 }
