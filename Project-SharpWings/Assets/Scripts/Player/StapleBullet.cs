@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class Bullet : MonoBehaviour
+    public class StapleBullet : MonoBehaviour
     {
         [HideInInspector] public Vector3 direction;
         [HideInInspector] public float speed;
@@ -13,7 +13,7 @@ namespace Player
         private float _deathTimer;
 
         public delegate void EnemyDeath(int score);
-        public event EnemyDeath OnEnemyDeath;
+        public event Bullet.EnemyDeath OnEnemyDeath;
     
         private void Start()
         {
@@ -29,7 +29,8 @@ namespace Player
 
         private void OnCollisionEnter(Collision collision)
         {
-            var enemy = collision.gameObject.GetComponent<IEnemy>();
+            var enemy = collision.gameObject.GetComponent<IEnemy
+            >();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);

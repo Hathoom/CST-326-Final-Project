@@ -95,7 +95,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1194267, y: 1}
+    m_SensorSize: {x: 1.9299363, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
   bulletDamage: 1
   bulletSpeed: 100
   bulletLifetime: 3
-  fireRate: 0.3
+  fireRate: 5
   bombPrefab: {fileID: 4906823299902532849, guid: ff87b4730eb56f04ea8d8ccc2a1c33cd, type: 3}
   bombExtrudePoint: {fileID: 183168831158509169}
   explosionDamage: 1
@@ -484,8 +484,14 @@ MonoBehaviour:
   explosionRadius: 4
   explosionForce: 700
   startingBombCount: 3
-  shootEffect: {fileID: 8300000, guid: 4fed46ae2d69b344abf741bb5f5a11d7, type: 3}
-  bombShootEffect: {fileID: 8300000, guid: fe20127b92052934190e6f4df161adca, type: 3}
+  stapleBulletPrefab: {fileID: 4629781016754026133, guid: e2ff4c34046511c4499988cd7c6061c8, type: 3}
+  upgradeDamage: 2
+  upgradeSpeed: 150
+  upgradeLifetime: 5
+  upgradeFireRate: 10
+  shootSound: {fileID: 8300000, guid: 4fed46ae2d69b344abf741bb5f5a11d7, type: 3}
+  upgradeShootSound: {fileID: 8300000, guid: fe20127b92052934190e6f4df161adca, type: 3}
+  bombShootSound: {fileID: 8300000, guid: 85be22bfd9a2fdc458913056044c682f, type: 3}
 --- !u!82 &6423277366963977302
 AudioSource:
   m_ObjectHideFlags: 0
