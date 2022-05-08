@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    private static InputManager _instance;
+    private static InputManager instance;
     private PlayerControls _playerControls;
 
-    public static InputManager CreateInstance()
+    public static InputManager createInstance()
     {
-        return _instance;
+        return instance;
     }
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            _instance = this;
+            instance = this;
         }
         _playerControls = new PlayerControls();
         Cursor.visible = false;
@@ -37,17 +37,17 @@ public class InputManager : MonoBehaviour
         _playerControls.Disable();
     }
 
-    public Vector2 GetPlayerMovement()
+    public Vector2 getPlayerMovement()
     {
         return _playerControls.Player.Movement.ReadValue<Vector2>();
     }
 
-    public bool PlayerBoost()
+    public bool playerBoost()
     {
         return _playerControls.Player.Boost.IsPressed();
     }
 
-    public bool PlayerBreak()
+    public bool playerBreak()
     {
         return _playerControls.Player.Break.IsPressed();
     }

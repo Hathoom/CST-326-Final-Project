@@ -1,41 +1,38 @@
 using Enemy;
 using UnityEngine;
 
-namespace Player
+public class Bullet : MonoBehaviour
 {
-    public class Bullet : MonoBehaviour
-    {
-        [HideInInspector] public Vector3 direction;
-        [HideInInspector] public float speed;
-        [HideInInspector] public float damage;
-        [HideInInspector] public float lifeTime;
-        private float _seconds;
-        private float _deathTimer;
+    [HideInInspector] public Vector3 direction;
+    [HideInInspector] public float speed;
+    [HideInInspector] public float damage;
+    [HideInInspector] public float lifeTime;
+    private float _seconds;
+    private float _deathTimer;
 
-        public delegate void EnemyDeath(int score);
-        public event EnemyDeath OnEnemyDeath;
+    public delegate void EnemyDeath(int score);
+    public event EnemyDeath OnEnemyDeath;
     
-        private void Start()
-        {
-            _deathTimer = Time.time;
-        }
+    private void Start()
+    {
+        _deathTimer = Time.time;
+    }
 
-        void Update()
-        {
-            transform.position += direction * speed * Time.deltaTime;
+    void Update()
+    {
+        transform.position += direction * speed * Time.deltaTime;
 
-            if (Time.time - _deathTimer > lifeTime) Destroy(gameObject);
-        }
+        if (Time.time - _deathTimer > lifeTime) Destroy(gameObject);
+    }
 
-        private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
+    {
+        var enemy = collision.gameObject.GetComponent<IEnemy>();
+        if (enemy != null)
         {
-            var enemy = collision.gameObject.GetComponent<IEnemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-                if (enemy.GetHealth() <= 0) OnEnemyDeath?.Invoke(enemy.GetScore());
-            }
-            Destroy(gameObject);
+            enemy.TakeDamage(damage);
+            if (enemy.GetHealth() <= 0) OnEnemyDeath?.Invoke(enemy.GetScore());
         }
+        Destroy(gameObject);
     }
 }

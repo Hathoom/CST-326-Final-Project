@@ -12,6 +12,7 @@ namespace Enemy
         {
             if (!other.gameObject.CompareTag("Player")) return;
             triggerEvent?.Invoke(other.gameObject);
+            Debug.Log("Test");
             if (killSelfAfterTrigger) Destroy(gameObject);
         }
     }
