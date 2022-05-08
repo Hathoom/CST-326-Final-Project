@@ -1,27 +1,33 @@
 using System.Collections;
-using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-public class bombPack : MonoBehaviour
+namespace Power_Up
 {
-    int amountBombs = 1;
-    // Start is called before the first frame update
-    void Start()
+    public class BombPack : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private int bombs = 1;
 
-    // Update is called once per frame
-    void Update()
-    {
+        private AudioSource _audio;
+        private void Awake() => _audio = GetComponent<AudioSource>();
         
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        private void OnTriggerEnter(Collider other)
         {
-            //other.AddBomb(addBombs);
+            var player = other.GetComponent<PlayerCombat>();
+            if (player == null) return;
+            player.AddBombCount(bombs);
+            _audio.Play();
+            foreach (var render in GetComponentsInChildren<Renderer>())
+            {
+                render.enabled = false;
+            }
+            StartCoroutine(PickupEffect());
+        }
+
+        private IEnumerator PickupEffect()
+        {
+            while (_audio.isPlaying) yield return null;
+            Destroy(gameObject);
         }
     }
 }

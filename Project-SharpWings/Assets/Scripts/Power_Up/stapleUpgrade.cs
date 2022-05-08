@@ -1,25 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-public class stapleUpgrade : MonoBehaviour
+namespace Power_Up
 {
-    // Start is called before the first frame update
-    void Start()
+    public class StapleUpgrade : MonoBehaviour
     {
+        private AudioSource _audio;
+        private void Awake() => _audio = GetComponent<AudioSource>();
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        private void OnTriggerEnter(Collider other)
         {
-            //other.doubleShot(true);
+            var player = other.GetComponent<PlayerCombat>();
+            if (player == null) return;
+            player.UpgradeWeapon();
+            foreach (var render in GetComponentsInChildren<Renderer>())
+            {
+                render.enabled = false;
+            }
+            StartCoroutine(PickupEffect());
+        }
+
+        private IEnumerator PickupEffect()
+        {
+            while (_audio.isPlaying) yield return null;
+            Destroy(gameObject);
         }
     }
 }
