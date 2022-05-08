@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player
@@ -25,6 +25,7 @@ namespace Player
         [SerializeField] private GameObject stapleBulletPrefab;
         [SerializeField] private float upgradeDamage = 2f, upgradeSpeed = 60f, upgradeLifetime = 5f;
         [SerializeField] private float upgradeFireRate = 10f;
+        [SerializeField] private List<GameObject> staplers;
 
         [Header("Audio")] 
         [SerializeField] private AudioClip shootSound;
@@ -55,42 +56,63 @@ namespace Player
         {
             if (Input.GetButton("Fire1") && Time.time - _fireRateTimer > _fireRate)
             {
-                _fireRateTimer = Time.time;
-                var bullet = Instantiate(bulletPrefab, bulletExtrudePoint.position, 
-                    transform.rotation * bulletPrefab.transform.rotation).GetComponent<Bullet>();
-                bullet.speed = bulletSpeed;
-                bullet.damage = bulletDamage;
-                bullet.lifeTime = bulletLifetime;
-                bullet.direction = transform.forward;
-                bullet.OnEnemyDeath += AddScore;
-                _shootAudio.Play();
+                SpawnBullet();
             }
 
             if(Input.GetKeyDown(KeyCode.Space) && _bombCount > 0)
             {
-                _bombCount--;
-                var bomb = Instantiate(bombPrefab, bombExtrudePoint.position, Quaternion.identity).GetComponent<Bomb>();
-                bomb.speed = bombSpeed;
-                bomb.damage = explosionDamage;
-                bomb.force = explosionForce;
-                bomb.delay = explosionDelay;
-                bomb.radius = explosionRadius;
-                bomb.direction = transform.forward;
-                bomb.OnEnemyDeath += AddScore;
-                _bombAudio.Play();
+                SpawnBomb();
             }
         }
 
-        private void AddScore(int score) => _playerScore += score;
-    
-        public int GetScore() => _playerScore;
+        #region FIRING
 
+        private void SpawnBullet()
+        {
+            _fireRateTimer = Time.time;
+            var bullet = Instantiate(bulletPrefab, bulletExtrudePoint.position, 
+                transform.rotation * bulletPrefab.transform.rotation).GetComponent<Bullet>();
+            bullet.speed = bulletSpeed;
+            bullet.damage = bulletDamage;
+            bullet.lifeTime = bulletLifetime;
+            bullet.direction = transform.forward;
+            bullet.OnEnemyDeath += AddScore;
+            _shootAudio.Play();
+        }
+        
+        
+        private void ChangeShootSound(AudioClip audioClip) => _shootAudio.clip = audioClip;
+        
+        #endregion
+        
+        #region BOMBS
+        
+        private void SpawnBomb()
+        {
+            _bombCount--;
+            var bomb = Instantiate(bombPrefab, bombExtrudePoint.position, Quaternion.identity).GetComponent<Bomb>();
+            bomb.speed = bombSpeed;
+            bomb.damage = explosionDamage;
+            bomb.force = explosionForce;
+            bomb.delay = explosionDelay;
+            bomb.radius = explosionRadius;
+            bomb.direction = transform.forward;
+            bomb.OnEnemyDeath += AddScore;
+            _bombAudio.Play();
+            
+        }
+        
         public int GetBombCount() => _bombCount;
 
         public int AddBombCount(int bombs) => _bombCount += bombs;
         
-        private void ChangeShootSound(AudioClip audioClip) => _shootAudio.clip = audioClip;
         private void ChangeBombSound(AudioClip audioClip) => _bombAudio.clip = audioClip;
+
+        #endregion
+        
+        private void AddScore(int score) => _playerScore += score;
+    
+        public int GetScore() => _playerScore;
 
         public void UpgradeWeapon()
         {
@@ -100,6 +122,10 @@ namespace Player
             bulletLifetime = upgradeLifetime;
             _fireRate = 1 / upgradeFireRate;
             ChangeShootSound(upgradeShootSound);
+            foreach (var stapler in staplers)
+            {
+                stapler.SetActive(true);
+            }
         }
     }
 }
