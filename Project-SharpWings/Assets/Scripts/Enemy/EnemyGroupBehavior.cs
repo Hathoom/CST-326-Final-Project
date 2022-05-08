@@ -13,6 +13,7 @@ namespace Enemy
         [Header("Enemy Information")]
         [SerializeField] private List<EnemyBehavior> enemies;
         [SerializeField] private float enemyGroupSpeed;
+        [SerializeField] private float enemyScale = 0.5f;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private float bulletSpeed, bulletDamage, bulletLifetime;
         [SerializeField] private float enemyFireRate, randFireOffset;
@@ -58,7 +59,11 @@ namespace Enemy
                     if (_dollyCart.m_Position >= trackPath.PathLength)
                     { 
                         gameObject.SetActive(false);
-                        foreach (var enemyObj in enemies) enemyObj?.gameObject.SetActive(false);
+                        foreach (var enemyObj in enemies)
+                        {
+                            if (enemyObj == null) continue;
+                            enemyObj.gameObject.SetActive(false);
+                        }
                         _currentState = "none";
                     }
                     break;
@@ -121,11 +126,11 @@ namespace Enemy
                 enemy.bulletSpeed = bulletSpeed;
                 enemy.bulletDamage = bulletDamage;
                 enemy.bulletLifetime = bulletLifetime;
+                enemy.scale = enemyScale;
 
                 enemy.swarmRadius = 1;
                 enemy.rotationAxis = Random.insideUnitSphere;
                 enemy.rotationSpeed = 60;
-
             }
 
             _dollyCart.m_Path = trackPath;
@@ -154,6 +159,7 @@ namespace Enemy
                 enemy.bulletPrefab = bulletPrefab;
                 enemy.bulletSpeed = bulletSpeed;
                 enemy.bulletDamage = bulletDamage;
+                enemy.scale = enemyScale;
 
                 enemy.swarmRadius = swarmRadius;
                 enemy.rotationAxis = Random.insideUnitSphere; // todo: 
