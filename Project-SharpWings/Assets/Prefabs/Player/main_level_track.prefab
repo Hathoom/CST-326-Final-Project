@@ -47,19 +47,21 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 0, g: 0.98536944, b: 1, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 0, y: 0, z: -9.60459}
+  - position: {x: 7.91008, y: 16.586704, z: -9.38636}
     roll: 0
-  - position: {x: 0, y: 0, z: 30}
+  - position: {x: 13.588257, y: 16.403172, z: 28.149414}
     roll: 0
-  - position: {x: -5.611798, y: 4.018239, z: 45.52389}
+  - position: {x: 19.266308, y: -3.4459534, z: 73.61112}
     roll: 0
-  - position: {x: -11.415199, y: -0.44328094, z: 61.09155}
+  - position: {x: 24.944427, y: -31.236603, z: 119.07286}
     roll: 0
-  - position: {x: 1.4707655, y: 3.7553225, z: 77.44438}
+  - position: {x: 64.69273, y: -65.39021, z: 76.65716}
     roll: 0
-  - position: {x: 3.5499678, y: 0.47547126, z: 97.71457}
+  - position: {x: 42.190536, y: -75.43707, z: 231.82224}
+    roll: 0
+  - position: {x: 88.79981, y: -75.86925, z: 280.01007}
     roll: 0
