@@ -1,35 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-public class DoubleHealth : MonoBehaviour
+namespace Power_Up
 {
-    //We need to hook up to the Player controller
-
-    // public PlayerManager player;
-    // public GameObject sphere;
-    // public GameObject pickUpEffect;
-    // public HealthBarScript healthBar;
-
-    // private void Awake()
-    // {
-    //     player = sphere.GetComponent<PlayerMovement>();
-    //     Debug.Log("Initial Health: " + player);
-    //     healthBar.setMaxHealth(player.health);
-    // }
-
-
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         player.health *= 2;
-    //         healthBar.setMaxHealth(player.health);
-    //         //healthBar.setHealth(player.health);
-    //         Instantiate(pickUpEffect, transform.position, transform.rotation);
-    //         Debug.Log("New Health Value: " + player.health);
-    //         Destroy(gameObject);
-            
-    //     }
-    // }
+    public class DoubleHealth : MonoBehaviour
+    {
+        private void OnTriggerEnter(Collider other)
+        {
+            var player = other.GetComponent<PlayerManager>();
+            if (player == null) return;
+            player.GainMaxHealth(player.maxHealth);
+            Destroy(gameObject);
+        }
+    }
 }

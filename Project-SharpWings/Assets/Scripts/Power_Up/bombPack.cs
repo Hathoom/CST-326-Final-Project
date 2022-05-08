@@ -1,27 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-public class bombPack : MonoBehaviour
+namespace Power_Up
 {
-    int amountBombs = 1;
-    // Start is called before the first frame update
-    void Start()
+    public class BombPack : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private int bombs = 1;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        private void OnTriggerEnter(Collider other)
         {
-            //other.AddBomb(addBombs);
+            var player = other.GetComponent<PlayerCombat>();
+            if (player == null) return;
+            player.AddBombCount(bombs);
+            Destroy(gameObject);
         }
     }
 }

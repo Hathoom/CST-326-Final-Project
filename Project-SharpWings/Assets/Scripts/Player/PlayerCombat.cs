@@ -25,7 +25,7 @@ namespace Player
         [SerializeField] private AudioClip bombShootEffect;
         private AudioSource _shootAudio;
         private AudioSource _bombAudio;
-        
+
         private int _playerScore;
 
         private void Awake()
@@ -81,7 +81,14 @@ namespace Player
 
         public int GetBombCount() => _bombCount;
 
-        public void ChangeShootSound(AudioClip audioClip) => _shootAudio.clip = audioClip;
-        public void ChangeBombSound(AudioClip audioClip) => _bombAudio.clip = audioClip;
+        public int AddBombCount(int bombs) => _bombCount += bombs;
+        
+        private void ChangeShootSound(AudioClip audioClip) => _shootAudio.clip = audioClip;
+        private void ChangeBombSound(AudioClip audioClip) => _bombAudio.clip = audioClip;
+
+        public void UpgradeWeapon()
+        {
+            return;
+        }
     }
 }
