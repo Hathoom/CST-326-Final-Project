@@ -39,7 +39,6 @@ namespace Player
 
         private void Awake()
         {
-            _inputManager = InputManager.CreateInstance();
             _cmCart = transform.parent.GetComponent<CinemachineDollyCart>();
             _mainCamera = Camera.main;
             _playerAudio = GetComponent<AudioSource>();
@@ -51,6 +50,7 @@ namespace Player
             _cartSpeed = defaultSpeed;
             _fov = defaultFoV;
             _pitch = 1;
+            _inputManager = InputManager.CreateInstance();
         }
 
         private void Update()
