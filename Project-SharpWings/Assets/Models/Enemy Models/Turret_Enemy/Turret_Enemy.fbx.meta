@@ -1,52 +1,14 @@
 fileFormatVersion: 2
-guid: 2299f001466e49641b3db73990d2cedf
+guid: 2540f4bad6895244dbe5fdd08d845050
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Abdomen_Material
-    second: {fileID: 2100000, guid: b6ab0eea1c7f5ba429e2fba43c6509b7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Head_Material
-    second: {fileID: 2100000, guid: dd607ea74fd3e9f48a278e43fc4d8495, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Left_Eye_Material
-    second: {fileID: 2100000, guid: 3feaeb0272417444db214bf482d0dbce, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Left_Wing_Material
-    second: {fileID: 2100000, guid: ce7c3cd438cdc944bb0fd45f3d045797, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Right_Eye_Material
-    second: {fileID: 2100000, guid: e9a31d60bc9c81c4581d5d0592ddf4ca, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Right_Wing_Material
-    second: {fileID: 2100000, guid: 2a189fe3d5915ef4d92eb53c6fb93fcd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stinger_Material
-    second: {fileID: 2100000, guid: 9f37a56e9cb560742a7e7a68bc4cde20, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Thorax_Material
-    second: {fileID: 2100000, guid: ce21fbe26fba9544db976b7c87cf8776, type: 2}
+      name: Crystal_Material
+    second: {fileID: 2100000, guid: b386a89255150f04d915a991c1967c51, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -78,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 2
+    globalScale: 50
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -131,8 +93,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 2
-    rootMotionBoneName: Root
+    globalScale: 50
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
