@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7088943958637653182}
   - component: {fileID: 8858842102130396573}
   m_Layer: 0
-  m_Name: Flying_Enemy
+  m_Name: Showcase_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
