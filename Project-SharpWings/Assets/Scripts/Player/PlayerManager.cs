@@ -93,7 +93,11 @@ namespace Player
             
         }
 
-        public void GainHealth(float health) => _health -= health;
+        public void GainHealth(float health)
+        {
+            _health += health;
+            if (_health > maxHealth) _health = maxHealth;
+        }
 
         public void GainMaxHealth(float health)
         {

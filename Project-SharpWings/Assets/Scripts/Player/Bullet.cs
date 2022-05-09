@@ -20,7 +20,7 @@ namespace Player
             _deathTimer = Time.time;
         }
 
-        void Update()
+        private void Update()
         {
             transform.position += direction * speed * Time.deltaTime;
 
