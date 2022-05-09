@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007792573493517335}
   - component: {fileID: 1007792573493517332}
+  - component: {fileID: -5055112771170164996}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -51,6 +52,19 @@ MonoBehaviour:
   m_PositionUnits: 1
   m_Speed: 6
   m_Position: 0
+--- !u!65 &-5055112771170164996
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007792573493517353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1007792574232372319
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,8 +147,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthSlider: {fileID: 0}
+  meterSlider: {fileID: 0}
+  meterFadeValue: 0
   bombCounter: {fileID: 0}
   scoreCounter: {fileID: 0}
+  farReticle: {fileID: 0}
+  nearReticle: {fileID: 0}
 --- !u!114 &3928284270048528697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,9 +165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1abb49fb25ff0bc4986a6c945a3c185f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFOV: 40
-  endFOV: 55
-  playerSpeed: 6
+  maxMeter: 0
+  meterDepletion: 0
+  defaultSpeed: 6
+  breakSpeed: 3
+  boostSpeed: 12
+  lookSpeed: 340
+  leanLimit: 80
+  defaultFoV: 45
+  breakFoV: 50
+  boostFoV: 40
+  zoomSpeed: 10
+  aimTarget: {fileID: 0}
   vCam: {fileID: 3360770370862434050}
 --- !u!114 &4182665335506915945
 MonoBehaviour:
@@ -177,6 +204,8 @@ MonoBehaviour:
   explosionRadius: 4
   explosionForce: 700
   startingBombCount: 3
+  shootEffect: {fileID: 0}
+  bombShootEffect: {fileID: 0}
 --- !u!1 &1907879721373876910
 GameObject:
   m_ObjectHideFlags: 0
