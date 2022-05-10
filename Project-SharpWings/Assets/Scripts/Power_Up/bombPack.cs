@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Power_Up
 {
-    public class bombPack : MonoBehaviour
+    public class BombPack : MonoBehaviour
     {
         [SerializeField] private int bombs = 1;
 

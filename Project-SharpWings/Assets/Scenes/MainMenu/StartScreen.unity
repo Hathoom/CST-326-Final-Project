@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 672909278}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 672909276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f3565be53c8724da2522665f508466, type: 3}
+  m_Script: {fileID: 11500000, guid: 34d1a16fc8457d44fbdf0abede1a7470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &733990990
@@ -463,7 +463,8 @@ MonoBehaviour:
   m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
-  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
+  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -598,7 +599,8 @@ MonoBehaviour:
   m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
-  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
+  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1085,7 +1087,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 672909278}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1

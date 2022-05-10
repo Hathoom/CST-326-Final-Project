@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Power_Up
 {
-    public class stapleUpgrade : MonoBehaviour
+    public class StapleUpgrade : MonoBehaviour
     {
         private AudioSource _audio;
         private void Awake() => _audio = GetComponent<AudioSource>();
