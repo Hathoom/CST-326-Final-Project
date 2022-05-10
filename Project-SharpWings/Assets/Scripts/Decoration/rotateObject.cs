@@ -8,6 +8,9 @@ public class rotateObject : MonoBehaviour
     public Vector3 toRotate;
     public float rotationSpeed;
     public float timer;
+    public bool playSound;
+    public AudioClip sound;
+    public AudioSource audio;
     private bool startRotating = false;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,11 @@ public class rotateObject : MonoBehaviour
 
     public void OpenDoor()
     {
+        if (playSound)
+        {
+            audio.clip = sound;
+            audio.enabled = true;
+        }
         startRotating = true;
     }
     
