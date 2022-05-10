@@ -14,6 +14,7 @@ namespace Enemy
         public float fireRate;
         private float _fireTimer;
         public float minTargetDistance, maxTargetDistance;
+        public Transform barrel;
 
         private void Start()
         {
@@ -43,11 +44,14 @@ namespace Enemy
             if (Time.time - _fireTimer > fireRate)
             {
                 _fireTimer = Time.time;
-                var localTransform = transform;
+                var localTransform = barrel;
                 var bullet = Instantiate(bulletPrefab,
                     localTransform.position + localTransform.forward,
                     bulletPrefab.transform.rotation * localTransform.rotation).GetComponent<EnemyBullet>();
                 bullet.speed = bulletSpeed;
+                bullet.direction = localTransform.forward;
+                bullet.lifeTime = 5f;
+                bullet.damage = 10;
             }
         }
         

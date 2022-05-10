@@ -12,8 +12,6 @@ namespace Player
         
         [Header("Dolly Cart Stats")]
         [SerializeField] private float defaultSpeed = 6;
-        [SerializeField] private float breakSpeed = 3;
-        [SerializeField] private float boostSpeed = 12;
         [SerializeField] private float lookSpeed = 340;
         [SerializeField] private float leanLimit = 80;
         private float _cartSpeed;
@@ -46,8 +44,8 @@ namespace Player
 
         private void Start()
         {
+            _cartSpeed = 20;
             _meter = maxMeter;
-            _cartSpeed = defaultSpeed;
             _fov = defaultFoV;
             _pitch = 1;
             _inputManager = InputManager.CreateInstance();
@@ -58,21 +56,22 @@ namespace Player
             if (_inputManager.PlayerBoost() && _meter > 0)
             {
                 _meter -= meterDepletion * Time.deltaTime;
-                _cartSpeed = boostSpeed;
+                _cartSpeed = 30;
                 _fov = boostFoV;
                 _pitch = 1.1f;
             }
             else if (_inputManager.PlayerBreak() && _meter > 0)
             {
                 _meter -= meterDepletion * Time.deltaTime;
-                _cartSpeed = breakSpeed;
+                _cartSpeed = 10;
                 _fov = breakFoV;
                 _pitch = 0.9f;
             }
             else
             {
-                if (_meter < maxMeter) _meter += meterDepletion * Time.deltaTime;
-                _cartSpeed = defaultSpeed;
+                if (_meter < maxMeter && !_inputManager.PlayerBreak() && !_inputManager.PlayerBoost()) 
+                    _meter += meterDepletion * Time.deltaTime;
+                _cartSpeed = 15;
                 _fov = defaultFoV;
                 _pitch = 1;
             }
@@ -86,7 +85,7 @@ namespace Player
         
         private void MovePlayer()
         {
-            transform.localPosition += new Vector3(_inputDirection.x, _inputDirection.y, 0f) * (_cartSpeed * Time.deltaTime);
+            transform.localPosition += new Vector3(_inputDirection.x, _inputDirection.y, 0f) * (defaultSpeed * Time.deltaTime);
             _cmCart.m_Speed = _cartSpeed;
             vCam.m_Lens.FieldOfView = Mathf.Lerp(vCam.m_Lens.FieldOfView, _fov, zoomSpeed * Time.deltaTime);
             ClampPosition();
