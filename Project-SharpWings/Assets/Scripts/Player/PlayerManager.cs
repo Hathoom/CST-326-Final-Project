@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -111,7 +112,8 @@ namespace Player
             if (_health <= 0)
             {
                 // Die
-                Destroy(gameObject);
+                SceneManager.LoadScene("Credits");
+                //Destroy(gameObject);
             }
         }
         
