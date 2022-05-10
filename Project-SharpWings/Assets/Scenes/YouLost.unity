@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1194838519}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1194838519}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: Retry
         m_Mode: 1
@@ -605,8 +605,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
-  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1,
-    type: 2}
+  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -728,7 +727,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1194838517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef5fc6ebeac94c842b3caf2fd644776e, type: 3}
+  m_Script: {fileID: 11500000, guid: 59715f520751816468b9e73d6a7d8785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1423527145
@@ -971,8 +970,7 @@ MonoBehaviour:
   m_text: GAME OVER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
-  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1,
-    type: 2}
+  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1107,8 +1105,7 @@ MonoBehaviour:
   m_text: RETRY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
-  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1,
-    type: 2}
+  m_sharedMaterial: {fileID: 2424059094245291911, guid: 4bc93445efab2a340b2aec22d47cf5a1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -7,7 +7,7 @@ public class GameOver : MonoBehaviour
 {
     public void Retry()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("final_level");
     }
 
     public void Quit()
