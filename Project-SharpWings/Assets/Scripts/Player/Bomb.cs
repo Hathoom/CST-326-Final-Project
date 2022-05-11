@@ -12,7 +12,7 @@ namespace Player
         [HideInInspector]  public float force;
         [HideInInspector] public float delay;
         private float _explosionTimer;
-        public GameObject explosionEffect;
+        //public GameObject explosionEffect;
 
         public delegate void EnemyDeath(int score);
         public event EnemyDeath OnEnemyDeath;
@@ -40,7 +40,7 @@ namespace Player
         private void Explode()
         {
             //show effect
-            Instantiate(explosionEffect, transform);
+            //Instantiate(explosionEffect, transform);
 
             // get nearby objects
             var colliders = Physics.OverlapSphere(transform.position, radius);

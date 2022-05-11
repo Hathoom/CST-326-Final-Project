@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace Player
@@ -26,6 +27,7 @@ namespace Player
         [SerializeField] private float upgradeDamage = 2f, upgradeSpeed = 60f, upgradeLifetime = 5f;
         [SerializeField] private float upgradeFireRate = 10f;
         [SerializeField] private List<GameObject> staplers;
+        private int _upgradeStage;
 
         [Header("Audio")] 
         [SerializeField] private AudioClip shootSound;
@@ -33,7 +35,7 @@ namespace Player
         [SerializeField] private AudioClip bombShootSound;
         private AudioSource _shootAudio;
         private AudioSource _bombAudio;
-
+        
         private int _playerScore;
 
         private void Awake()
@@ -69,6 +71,25 @@ namespace Player
 
         private void SpawnBullet()
         {
+            switch (_upgradeStage)
+            {
+                case 0:
+                    FireRubberBand();
+                    break;
+                case 1:
+                    FireSingleStaple(bulletExtrudePoint.position);
+                    break;
+                case 2:
+                    FireDoubleStaple();
+                    break;
+                default:
+                    FireRubberBand();
+                    break;
+            }
+        }
+
+        private void FireRubberBand()
+        {
             _fireRateTimer = Time.time;
             var bullet = Instantiate(bulletPrefab, bulletExtrudePoint.position, 
                 transform.rotation * bulletPrefab.transform.rotation).GetComponent<Bullet>();
@@ -79,7 +100,25 @@ namespace Player
             bullet.OnEnemyDeath += AddScore;
             _shootAudio.Play();
         }
-        
+
+        private void FireSingleStaple(Vector3 position)
+        {
+            _fireRateTimer = Time.time;
+            var bullet = Instantiate(stapleBulletPrefab, position, 
+                transform.rotation * bulletPrefab.transform.rotation).GetComponent<Bullet>();
+            bullet.speed = upgradeSpeed;
+            bullet.damage = upgradeDamage;
+            bullet.lifeTime = upgradeLifetime;
+            bullet.direction = transform.forward;
+            bullet.OnEnemyDeath += AddScore;
+            _shootAudio.Play();
+        }
+
+        private void FireDoubleStaple()
+        {
+            FireSingleStaple(bulletExtrudePoint.position + (transform.right * 0.5f));
+            FireSingleStaple(bulletExtrudePoint.position + (transform.right * -0.5f));
+        }
         
         private void ChangeShootSound(AudioClip audioClip) => _shootAudio.clip = audioClip;
         
@@ -116,15 +155,20 @@ namespace Player
 
         public void UpgradeWeapon()
         {
-            bulletPrefab = stapleBulletPrefab;
-            bulletDamage = upgradeDamage;
-            bulletSpeed = upgradeSpeed;
-            bulletLifetime = upgradeLifetime;
-            _fireRate = 1 / upgradeFireRate;
+            _upgradeStage += 1;
             ChangeShootSound(upgradeShootSound);
-            foreach (var stapler in staplers)
+            _fireRate = 1 / upgradeFireRate;
+            switch (_upgradeStage)
             {
-                stapler.SetActive(true);
+                case > 2:
+                    _upgradeStage = 2;
+                    break;
+                case 1:
+                    staplers[0].SetActive(true);
+                    break;
+                case 2:
+                    staplers[1].SetActive(true);
+                    break;
             }
         }
     }
