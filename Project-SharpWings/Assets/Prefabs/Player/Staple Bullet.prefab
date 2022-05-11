@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 79219369057027069}
   - component: {fileID: 5300368966306316594}
   - component: {fileID: -7728709239937590418}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Staple Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,9 +87,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7407533024794615441}
     m_Modifications:
+    - target: {fileID: 744413778802012363, guid: cdfe58a4c0065cf44887a8090ed736ca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2802439886186613156, guid: cdfe58a4c0065cf44887a8090ed736ca, type: 3}
       propertyPath: m_Name
       value: Staple Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802439886186613156, guid: cdfe58a4c0065cf44887a8090ed736ca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309154567189146302, guid: cdfe58a4c0065cf44887a8090ed736ca, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6179365031416812834, guid: cdfe58a4c0065cf44887a8090ed736ca, type: 3}
       propertyPath: m_RootOrder
@@ -134,6 +146,10 @@ PrefabInstance:
     - target: {fileID: 6179365031416812834, guid: cdfe58a4c0065cf44887a8090ed736ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846655315359650507, guid: cdfe58a4c0065cf44887a8090ed736ca, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdfe58a4c0065cf44887a8090ed736ca, type: 3}

@@ -27396,6 +27396,10 @@ PrefabInstance:
       propertyPath: maxTargetDistance
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 3191486504921118166, guid: b624ee2affe4f1849a2216880978030a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3955448818472439062, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: m_Name
       value: Turret Enemy (2)
