@@ -72,7 +72,14 @@ namespace Enemy
         {
             health -= damage;
             if (health <= 0)
-            {
+            {  
+                //player shoots them a second time
+                if (isDead)
+                {
+                    Destroy(gameObject);
+                }
+
+
                 // tells the animator to go to an empty animation
                 animator.enabled = false;
 
