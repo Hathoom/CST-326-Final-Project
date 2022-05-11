@@ -97,10 +97,8 @@ namespace Player
 
         private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log(collisionDamage);
             if (collision.gameObject.layer == LayerMask.NameToLayer("Solid")||collision.gameObject.layer == LayerMask.NameToLayer("Enemy")) 
             {
-                Debug.Log(collisionDamage);
                 TakeDamage(collisionDamage);
             }            
         }
