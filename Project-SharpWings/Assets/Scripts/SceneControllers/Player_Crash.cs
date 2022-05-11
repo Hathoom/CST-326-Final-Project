@@ -19,7 +19,7 @@ public class Player_Crash : MonoBehaviour
         
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         var player = collision.gameObject.GetComponent<PlayerManager>();
         if (player != null)
@@ -28,4 +28,6 @@ public class Player_Crash : MonoBehaviour
         }
         
     }
+
+    
 }

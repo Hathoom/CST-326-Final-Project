@@ -9,6 +9,7 @@ namespace Player
     {
         [Header("General")]
         public float maxHealth = 100f;
+        public float collisionDamage = 10f;
         private float _health;
 
         [Header("UI")] 
@@ -92,6 +93,16 @@ namespace Player
                     break;
             }
             
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log(collisionDamage);
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Solid")||collision.gameObject.layer == LayerMask.NameToLayer("Enemy")) 
+            {
+                Debug.Log(collisionDamage);
+                TakeDamage(collisionDamage);
+            }            
         }
 
         public void GainHealth(float health)
