@@ -16,10 +16,14 @@ namespace Player
 
         public delegate void EnemyDeath(int score);
         public event EnemyDeath OnEnemyDeath;
+
+        public BoxCollider _boxedCollider;
+
     
         private void Start()
         {
             _explosionTimer = Time.time;
+            _boxedCollider = GetComponent<BoxCollider>();
         }
 
         private void Update()
@@ -34,13 +38,37 @@ namespace Player
 
         private void OnCollisionEnter(Collision collision)
         {
-            Explode();
+          //Explode();
         }
 
         private void Explode()
         {
-            //show effect
-            Instantiate(explosionEffect, transform);
+            //shows effect
+             Instantiate(explosionEffect, transform);
+
+            // var enemy = collision.gameObject.GetComponent<IEnemy>();
+            // // make sure that we are colliding with the enemy
+
+            // //shows effect
+            // Instantiate(explosionEffect, transform);
+
+            // if(enemy != null)
+            // {
+            //     //calls the funtion to make the enemy take damage
+            //     enemy.TakeDamage(damage);
+
+            //     if(enemy.GetHealth() < 0) OnEnemyDeath?.Invoke(enemy.GetScore());
+                
+
+
+            // }
+
+
+            // //removes the bomb and interacts with the bomb
+            // Destroy(gameObject);
+            
+            
+            /**
 
             // get nearby objects
             var colliders = Physics.OverlapSphere(transform.position, radius);
@@ -64,8 +92,11 @@ namespace Player
                 }
             }
 
+            
+            */
             //remove bomb
-            Destroy(gameObject);
+           // Destroy(gameObject);
+            
         }
 
     }

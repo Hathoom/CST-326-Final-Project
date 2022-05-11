@@ -95,7 +95,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9299363, y: 1}
+    m_SensorSize: {x: 1.6683632, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -189,9 +189,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160369034786614970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.44, z: 0}
+  m_LocalPosition: {x: 0, y: -0.657, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2425106777305873608}
   m_RootOrder: 2
@@ -216,7 +216,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.16217759
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -450,8 +450,6 @@ MonoBehaviour:
   maxMeter: 100
   meterDepletion: 50
   defaultSpeed: 6
-  breakSpeed: 3
-  boostSpeed: 12
   lookSpeed: 1500
   leanLimit: 45
   defaultFoV: 45
@@ -472,20 +470,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6534fc7bf398df49871d910e2c1f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5574068153695487161, guid: 28908ace65b1f154dacc512e6312d8e6, type: 3}
+  bulletPrefab: {fileID: 490761260487401187, guid: 7d805318c652a4a44993b9f12421e9b6, type: 3}
   bulletExtrudePoint: {fileID: 2097190904697480491}
   bulletDamage: 1
   bulletSpeed: 100
   bulletLifetime: 3
   fireRate: 5
-  bombPrefab: {fileID: 4906823299902532849, guid: ff87b4730eb56f04ea8d8ccc2a1c33cd, type: 3}
+  bombPrefab: {fileID: 175489235582160271, guid: 3fb7c4abc09243d4aa5fd25ae86c2530, type: 3}
   bombExtrudePoint: {fileID: 183168831158509169}
-  explosionDamage: 1
+  explosionDamage: 10
   bombSpeed: 20
   explosionDelay: 1
   explosionRadius: 4
   explosionForce: 700
-  startingBombCount: 3
+  startingBombCount: 99
   stapleBulletPrefab: {fileID: 4629781016754026133, guid: e2ff4c34046511c4499988cd7c6061c8, type: 3}
   upgradeDamage: 2
   upgradeSpeed: 150
@@ -681,7 +679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3900668947925146170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 1.363}
+  m_LocalPosition: {x: 0, y: -0.1, z: 2.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
