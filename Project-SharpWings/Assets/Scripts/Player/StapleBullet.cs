@@ -1,4 +1,6 @@
+using System;
 using Enemy;
+using TMPro;
 using UnityEngine;
 
 namespace Player
@@ -8,35 +10,37 @@ namespace Player
         [HideInInspector] public Vector3 direction;
         [HideInInspector] public float speed;
         [HideInInspector] public float damage;
-        [HideInInspector] public float lifeTime;
         private float _seconds;
-        private float _deathTimer;
-
+        private bool _isTravelling;
+        
         public delegate void EnemyDeath(int score);
         public event Bullet.EnemyDeath OnEnemyDeath;
-    
+
         private void Start()
         {
-            _deathTimer = Time.time;
+            _isTravelling = true;
         }
 
         private void Update()
         {
-            transform.position += direction * speed * Time.deltaTime;
-
-            if (Time.time - _deathTimer > lifeTime) Destroy(gameObject);
+            if (_isTravelling) transform.position += direction * speed * Time.deltaTime;
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            var enemy = collision.gameObject.GetComponent<IEnemy
-            >();
+            var enemy = collision.gameObject.GetComponent<IEnemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                if (enemy.GetHealth() <= 0) OnEnemyDeath?.Invoke(enemy.GetScore());
+                if (enemy.GetHealth() <= 0)
+                {
+                    OnEnemyDeath?.Invoke(enemy.GetScore());
+                }
             }
-            Destroy(gameObject);
+            else
+            {
+                _isTravelling = false;
+            }
         }
     }
 }
