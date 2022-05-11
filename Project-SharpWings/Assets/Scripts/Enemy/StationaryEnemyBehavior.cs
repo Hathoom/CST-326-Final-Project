@@ -101,7 +101,7 @@ namespace Enemy
             // when the enemy has died, if the enemy collides with something it dies.
             if (isDead)
             {
-               Destroy(gameObject);
+               Destroy(gameObject, 1f);
             }
         }
     }
