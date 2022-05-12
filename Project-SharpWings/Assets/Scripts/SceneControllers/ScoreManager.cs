@@ -7,7 +7,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using File = UnityEngine.Windows.File;
 
 namespace SceneControllers
 {
