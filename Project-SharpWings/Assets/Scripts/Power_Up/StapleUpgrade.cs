@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace Power_Up
 {
-    public class bombPack : MonoBehaviour
+    public class StapleUpgrade : MonoBehaviour
     {
-        [SerializeField] private int bombs = 1;
-
         private AudioSource _audio;
         private void Awake() => _audio = GetComponent<AudioSource>();
         
@@ -15,8 +13,7 @@ namespace Power_Up
         {
             var player = other.GetComponent<PlayerCombat>();
             if (player == null) return;
-            player.AddBombCount(bombs);
-            _audio.Play();
+            player.UpgradeWeapon();
             foreach (var render in GetComponentsInChildren<Renderer>())
             {
                 render.enabled = false;
