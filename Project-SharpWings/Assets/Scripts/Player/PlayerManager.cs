@@ -121,7 +121,7 @@ namespace Player
             if (_health <= 0)
             {
                 // Die
-                SceneManager.LoadScene("Credits");
+                SceneManager.LoadScene("YouLost");
                 //Destroy(gameObject);
             }
         }
