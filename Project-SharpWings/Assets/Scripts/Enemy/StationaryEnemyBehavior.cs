@@ -15,9 +15,11 @@ namespace Enemy
         private float _fireTimer;
         public float minTargetDistance, maxTargetDistance;
         public Transform barrel;
+        private AudioSource AS;
 
         private void Start()
         {
+            AS = GetComponent<AudioSource>();
             _fireTimer = Time.time;
         }
 
@@ -43,6 +45,7 @@ namespace Enemy
             // fire
             if (Time.time - _fireTimer > fireRate)
             {
+                AS.Play();
                 _fireTimer = Time.time;
                 var localTransform = barrel;
                 var bullet = Instantiate(bulletPrefab,
