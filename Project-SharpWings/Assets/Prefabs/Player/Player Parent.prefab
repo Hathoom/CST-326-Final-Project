@@ -95,7 +95,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6683632, y: 1}
+    m_SensorSize: {x: 1.6666667, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -478,8 +478,8 @@ MonoBehaviour:
   fireRate: 5
   bombPrefab: {fileID: 175489235582160271, guid: 3fb7c4abc09243d4aa5fd25ae86c2530, type: 3}
   bombExtrudePoint: {fileID: 183168831158509169}
-  explosionDamage: 10
-  bombSpeed: 20
+  explosionDamage: 100
+  bombSpeed: 30
   explosionDelay: 1
   explosionRadius: 4
   explosionForce: 700

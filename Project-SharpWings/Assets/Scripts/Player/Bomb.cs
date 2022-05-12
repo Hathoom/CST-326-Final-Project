@@ -13,7 +13,7 @@ namespace Player
         [HideInInspector]  public float force;
         [HideInInspector] public float delay;
         [HideInInspector] private float effectTimer;
-        [HideInInspector] private float inLargeBY;
+        //[HideInInspector] private float inLargeBY;
 
         private float _explosionTimer;
         public GameObject explosionEffect;
@@ -24,6 +24,14 @@ namespace Player
         public BoxCollider _boxedCollider;
         public SphereCollider _effectCollider;
 
+        //These will be for the small projectile bombs around the sphere
+
+        public GameObject _fragment1;
+        public SphereCollider _fragment2;
+        public SphereCollider _fragment3;
+        public SphereCollider _fragment4;
+
+
         public Transform _transform;
 
         public List<MeshRenderer> meshList;
@@ -33,13 +41,21 @@ namespace Player
 
         private void Start()
         {
-            delay = 2;
-            effectTimer = 2;
-            inLargeBY = 30;
+            delay = 0.5f;
+            effectTimer = 3;
+            //inLargeBY = 30;
+            damage = 700;
             //_transform = transform;
-            _explosionTimer = Time.time;
+            
             _boxedCollider = GetComponent<BoxCollider>();
             _effectCollider = GetComponent<SphereCollider>();
+            _explosionTimer = Time.time;
+            //fragment colliders
+            //_fragment1 = GetComponent<Rigidbody>();
+            
+            //_fragment2 = GetComponent<Rigidbody>();
+            //_fragment3 = GetComponent<Rigidbody>();
+            //_fragment4 = GetComponent<Rigidbody>();
 
             _effectCollider.enabled = false;
         }
@@ -47,6 +63,8 @@ namespace Player
         private void Update()
         {
             transform.position += direction * (speed * Time.deltaTime);
+
+            
 
             if (Time.time - _explosionTimer > delay)
             {
@@ -58,16 +76,13 @@ namespace Player
             {
                 case "Effect":
 
-                    if (_effectCollider.radius < radius)
-                    {
-                        _effectCollider.radius += inLargeBY * Time.deltaTime;
-                        _explosionTimer = Time.time;
-                        return;
-                    }
+                    // with in the effect I want the smaller bombs to scater into different areas
+                   // _fragment1.r.position += Time.deltaTime * 10f;
 
 
                     if (Time.time - _explosionTimer > effectTimer)
                     {
+                        
                         Destroy(gameObject);
                     }
                     break;
@@ -78,14 +93,32 @@ namespace Player
 
         private void OnCollisionEnter(Collision collision)
         {
+            
           //Explode();
+
+          //Debug.Log("Hit Something" + collision.gameObject.name);
+
+           var connection = collision.gameObject.GetComponent<IEnemy>();
+
+        
+          // Debug.Log("Enemy:  ---  "+ damage  + " : " + connection.GetHealth()    );
+            if(connection != null){
+                //Debug.Log(collision.gameObject.name + " " + collision);
+                connection.TakeDamage(damage);
+                if(connection.GetHealth() <= 0 ) OnEnemyDeath?.Invoke(connection.GetScore());
+            }
+            
+
+        
+
+            //Destroy(gameObject);
         }
 
         private void Explode()
         {
             //shows effect
             //Instantiate(explosionEffect, transform);
-            Debug.Log("Explosion");
+            //Debug.Log("Explosion");
 
             foreach (var meshL in meshList)
             {
