@@ -10,6 +10,7 @@ namespace Enemy
         [HideInInspector] public string currentState;
         [HideInInspector] public float health;
         [HideInInspector] public int score;
+        [HideInInspector] public float scale;
 
         // bullet stuff
         [HideInInspector] public GameObject bulletPrefab;
@@ -29,6 +30,7 @@ namespace Enemy
             var center = groupParent.transform.position;
             var transformPosition = (Random.insideUnitSphere - center).normalized * swarmRadius + center;
             transform.position = transformPosition;
+            transform.localScale = Vector3.one * scale;
         }
 
         private void Update()
