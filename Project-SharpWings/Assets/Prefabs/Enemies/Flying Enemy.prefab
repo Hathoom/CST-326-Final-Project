@@ -130,6 +130,7 @@ MonoBehaviour:
   swarmRadius: 0
   rotationSpeed: 0
   rotationAxis: {x: 0, y: 0, z: 0}
+  Explosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!54 &5656868924830161553
 Rigidbody:
   m_ObjectHideFlags: 0

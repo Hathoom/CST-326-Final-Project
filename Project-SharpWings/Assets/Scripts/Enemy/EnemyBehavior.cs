@@ -24,6 +24,9 @@ namespace Enemy
         [HideInInspector] public float swarmRadius, rotationSpeed;
         [HideInInspector] public Vector3 rotationAxis;
 
+        [HideInInspector] public GameObject Explosion;
+
+
         private void Start()
         {
             AS = GetComponent<AudioSource>();
@@ -83,6 +86,8 @@ namespace Enemy
             if (health <= 0)
             {
                 // Die
+                Instantiate(Explosion, transform.position, transform.rotation);
+
                 Destroy(gameObject);
             }
         }

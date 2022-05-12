@@ -20,9 +20,12 @@ namespace Enemy
         //death animation
         private bool isDead;
 
+        private float timer;
         private Rigidbody rBody;
 
         private Animator animator;
+
+        public GameObject Explosion;
 
         private void Start()
         {
@@ -31,6 +34,8 @@ namespace Enemy
             
             rBody = gameObject.GetComponent<Rigidbody>();
             animator = gameObject.GetComponent<Animator>();
+
+            timer = 0f;
         }
 
         private void Update()
@@ -53,21 +58,23 @@ namespace Enemy
             
                 // look at player
                 transform.LookAt(targetPosition);
+                // fire
+                if (Time.time - _fireTimer > fireRate)
+                {
+                    AS.Play();
+                    _fireTimer = Time.time;
+                    var localTransform = barrel;
+                    var bullet = Instantiate(bulletPrefab,
+                        localTransform.position + localTransform.forward,
+                        bulletPrefab.transform.rotation * localTransform.rotation).GetComponent<EnemyBullet>();
+                    bullet.speed = bulletSpeed;
+                    bullet.direction = localTransform.forward;
+                    bullet.lifeTime = 5f;
+                    bullet.damage = 10;
+                }
             }
-            // fire
-            if (Time.time - _fireTimer > fireRate)
-            {
-                AS.Play();
-                _fireTimer = Time.time;
-                var localTransform = barrel;
-                var bullet = Instantiate(bulletPrefab,
-                    localTransform.position + localTransform.forward,
-                    bulletPrefab.transform.rotation * localTransform.rotation).GetComponent<EnemyBullet>();
-                bullet.speed = bulletSpeed;
-                bullet.direction = localTransform.forward;
-                bullet.lifeTime = 5f;
-                bullet.damage = 10;
-            }
+
+            timer = timer + Time.deltaTime;
         }
         
         public void TakeDamage(float damage)
@@ -78,6 +85,8 @@ namespace Enemy
                 //player shoots them a second time
                 if (isDead)
                 {
+                    Instantiate(Explosion, transform.position, transform.rotation);
+
                     Destroy(gameObject);
                 }
 
@@ -110,8 +119,11 @@ namespace Enemy
             // when the enemy has died, if the enemy collides with something it dies.
             if (isDead)
             {
-               Destroy(gameObject, 1f);
+                Instantiate(Explosion, transform.position, transform.rotation);
+
+                Destroy(gameObject);
             }
+            
         }
     }
 }

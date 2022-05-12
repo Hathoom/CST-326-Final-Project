@@ -104,6 +104,7 @@ MonoBehaviour:
   explosionGrowthSpeed: 20
   explosionDamage: 0
   explosionLingerTiming: 2
+  Explosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!1001 &425233310962977233
 PrefabInstance:
   m_ObjectHideFlags: 0
