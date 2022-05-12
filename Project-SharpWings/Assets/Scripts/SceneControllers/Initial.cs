@@ -20,17 +20,23 @@ namespace SceneControllers
 
         public void UpInitial()
         {
-            _initial = (char) ((_initial + 1) % 90 + 65);
+            _initial++;
             UpdateInitial();
         }
 
         public void DownInitial()
         {
-            _initial = (char) ((_initial - 1) % 90 + 65);
+            _initial--;
             UpdateInitial();
         }
 
-        private void UpdateInitial() => _initialText.text = _initial.ToString();
+        private void UpdateInitial()
+        {
+            // modulo wouldn't work lol
+            if (_initial > 'A' + 25) _initial = 'A';
+            if (_initial < 'A') _initial = 'Z';
+            _initialText.text = _initial.ToString();
+        }
         
         public char GetInitial() => _initial;
     }
