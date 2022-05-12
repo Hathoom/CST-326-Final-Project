@@ -26,8 +26,8 @@ namespace Player
         public Transform _transform;
 
         public List<MeshRenderer> meshList;
-
         private string _eventOfExplosion;
+        
         private void Start()
         {
             delay = 2;
