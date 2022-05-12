@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ public class rotateObject : MonoBehaviour
     private bool startMoving;
     
     // Update is called once per frameW
-    void Update()
+    private void FixedUpdate()
     {
         if (startRotating && timer > 0f && !movePosition)
         {

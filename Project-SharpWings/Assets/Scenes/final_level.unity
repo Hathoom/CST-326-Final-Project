@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5111,7 +5111,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh765730
+  m_Name: pb_Mesh40946
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16664,7 +16664,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh764520
+  m_Name: pb_Mesh39586
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -42064,7 +42064,7 @@ MonoBehaviour:
   toRotate: {x: 0, y: 1, z: 0}
   toMove: {x: 0, y: 0, z: 0}
   movePosition: 0
-  rotationSpeed: 0.15
+  rotationSpeed: 0.75
   timer: 2.5
   playSound: 0
   sound: {fileID: 0}
@@ -57539,7 +57539,7 @@ PrefabInstance:
       objectReference: {fileID: 1353750316}
     - target: {fileID: 2266768264608175845, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: maxTargetDistance
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3955448818472439062, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: m_Name
@@ -66873,7 +66873,7 @@ MonoBehaviour:
   toRotate: {x: 0, y: 1, z: 0}
   toMove: {x: 0, y: 0, z: 0}
   movePosition: 0
-  rotationSpeed: 0.25
+  rotationSpeed: 0.75
   timer: 2
   playSound: 0
   sound: {fileID: 0}
@@ -83569,7 +83569,7 @@ PrefabInstance:
       objectReference: {fileID: 1353750316}
     - target: {fileID: 2266768264608175845, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: maxTargetDistance
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3955448818472439062, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: m_Name
@@ -84684,7 +84684,7 @@ PrefabInstance:
       objectReference: {fileID: 1353750316}
     - target: {fileID: 2266768264608175845, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: maxTargetDistance
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3955448818472439062, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: m_Name
@@ -92200,7 +92200,7 @@ MonoBehaviour:
   toRotate: {x: 0, y: -1, z: 0}
   toMove: {x: 0, y: 0, z: 0}
   movePosition: 0
-  rotationSpeed: 0.15
+  rotationSpeed: 0.75
   timer: 4
   playSound: 1
   sound: {fileID: 8300000, guid: 57ae7a99948266541966d425eb1b2d1c, type: 3}
@@ -104768,7 +104768,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh766778
+  m_Name: pb_Mesh42132
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -113141,7 +113141,7 @@ PrefabInstance:
       objectReference: {fileID: 1353750316}
     - target: {fileID: 2266768264608175845, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: maxTargetDistance
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3955448818472439062, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: m_Name
