@@ -31,6 +31,11 @@ namespace Player
         public SphereCollider _fragment3;
         public SphereCollider _fragment4;
 
+        
+        public ParticleSystem explosionE_ShockWave;
+        public ParticleSystem explosionE_Ember;
+        public ParticleSystem explosionE_Smoke;
+
 
         public Transform _transform;
 
@@ -41,8 +46,8 @@ namespace Player
 
         private void Start()
         {
-            delay = 0.5f;
-            effectTimer = 3;
+            delay = 2f;
+            effectTimer = 5;
             //inLargeBY = 30;
             damage = 700;
             //_transform = transform;
@@ -69,6 +74,10 @@ namespace Player
             if (Time.time - _explosionTimer > delay)
             {
                 Explode();
+
+                explosionE_ShockWave.Play();
+                explosionE_Ember.Play();
+                explosionE_Smoke.Play();
             }
 
 
@@ -78,6 +87,8 @@ namespace Player
 
                     // with in the effect I want the smaller bombs to scater into different areas
                    // _fragment1.r.position += Time.deltaTime * 10f;
+
+                   
 
 
                     if (Time.time - _explosionTimer > effectTimer)
@@ -127,6 +138,21 @@ namespace Player
 
             _boxedCollider.enabled = false;
             _effectCollider.enabled = true;
+
+            // // get nearby objects
+            // var colliders = Physics.OverlapSphere(transform.position, radius);
+
+            // foreach (var nearbyObject in colliders)
+            // {
+            //     //add force
+            
+            //     var rb = nearbyObject.GetComponent<Rigidbody>();
+            //     if (rb != null)
+            //     {
+            //         rb.AddExplosionForce(force, Vector3.forward * 10, radius);
+            //     }
+
+            // }
 
             _eventOfExplosion = "Effect";
 
