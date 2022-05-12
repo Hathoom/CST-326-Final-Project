@@ -6,6 +6,7 @@ namespace Enemy
     {
         [HideInInspector] public GameObject trackedObject;
         [HideInInspector] public GameObject groupParent;
+        private AudioSource AS;
 
         [HideInInspector] public string currentState;
         [HideInInspector] public float health;
@@ -25,6 +26,7 @@ namespace Enemy
 
         private void Start()
         {
+            AS = GetComponent<AudioSource>();
             fireRate += fireRateOffset;
             _fireTimer = Time.time;
             var center = groupParent.transform.position;
@@ -62,6 +64,7 @@ namespace Enemy
             // fire
             if (Time.time - _fireTimer > fireRate)
             {
+                AS.Play();
                 _fireTimer = Time.time;
                 var localTransform = transform;
                 var bullet = Instantiate(bulletPrefab,

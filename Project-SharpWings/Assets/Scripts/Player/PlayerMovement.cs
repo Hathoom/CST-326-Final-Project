@@ -9,12 +9,16 @@ namespace Player
         [SerializeField] private float maxMeter;
         [SerializeField] private float meterDepletion;
         private float _meter;
-        
-        [Header("Dolly Cart Stats")]
-        [SerializeField] private float defaultSpeed = 6;
+
+        [Header("Dolly Cart Stats")] 
+        public float trackSpeed;
+        public float playerSpeed;
+        public float boostSpeed;
+        public float breakSpeed;
         [SerializeField] private float lookSpeed = 340;
         [SerializeField] private float leanLimit = 80;
         private float _cartSpeed;
+        private float defaultSpeed;
 
         [Header("Camera Stats")] 
         [SerializeField] private float defaultFoV = 45;
@@ -44,7 +48,8 @@ namespace Player
 
         private void Start()
         {
-            _cartSpeed = 20;
+            defaultSpeed = playerSpeed;
+            _cartSpeed = trackSpeed;
             _meter = maxMeter;
             _fov = defaultFoV;
             _pitch = 1;
@@ -56,14 +61,16 @@ namespace Player
             if (_inputManager.PlayerBoost() && _meter > 0)
             {
                 _meter -= meterDepletion * Time.deltaTime;
-                _cartSpeed = 30;
+                _cartSpeed = boostSpeed;
+                playerSpeed = defaultSpeed * 1.25f;
                 _fov = boostFoV;
                 _pitch = 1.1f;
             }
             else if (_inputManager.PlayerBreak() && _meter > 0)
             {
                 _meter -= meterDepletion * Time.deltaTime;
-                _cartSpeed = 10;
+                _cartSpeed = breakSpeed;
+                playerSpeed = defaultSpeed * 0.75f;
                 _fov = breakFoV;
                 _pitch = 0.9f;
             }
@@ -71,7 +78,8 @@ namespace Player
             {
                 if (_meter < maxMeter && !_inputManager.PlayerBreak() && !_inputManager.PlayerBoost()) 
                     _meter += meterDepletion * Time.deltaTime;
-                _cartSpeed = 15;
+                _cartSpeed = trackSpeed;
+                playerSpeed = defaultSpeed;
                 _fov = defaultFoV;
                 _pitch = 1;
             }
@@ -85,7 +93,7 @@ namespace Player
         
         private void MovePlayer()
         {
-            transform.localPosition += new Vector3(_inputDirection.x, _inputDirection.y, 0f) * (defaultSpeed * Time.deltaTime);
+            transform.localPosition += new Vector3(_inputDirection.x, _inputDirection.y, 0f) * (playerSpeed * Time.deltaTime);
             _cmCart.m_Speed = _cartSpeed;
             vCam.m_Lens.FieldOfView = Mathf.Lerp(vCam.m_Lens.FieldOfView, _fov, zoomSpeed * Time.deltaTime);
             ClampPosition();

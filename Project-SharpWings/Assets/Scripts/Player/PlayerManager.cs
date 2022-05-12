@@ -97,10 +97,8 @@ namespace Player
 
         private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log(collisionDamage);
             if (collision.gameObject.layer == LayerMask.NameToLayer("Solid")||collision.gameObject.layer == LayerMask.NameToLayer("Enemy")) 
             {
-                Debug.Log(collisionDamage);
                 TakeDamage(collisionDamage);
             }            
         }
@@ -123,7 +121,7 @@ namespace Player
             if (_health <= 0)
             {
                 // Die
-                SceneManager.LoadScene("Credits");
+                SceneManager.LoadScene("YouLost");
                 //Destroy(gameObject);
             }
         }
