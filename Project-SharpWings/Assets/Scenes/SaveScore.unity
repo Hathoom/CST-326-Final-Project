@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -732,12 +732,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+  deathState: 0
   initials:
   - {fileID: 90478163}
   - {fileID: 1772957316}
   - {fileID: 2081058443}
   scoreList: {fileID: 2116715180}
   playerScoreText: {fileID: 1584137651}
+  submitButton: {fileID: 213658871}
 --- !u!4 &682563313
 Transform:
   m_ObjectHideFlags: 0

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using File = UnityEngine.Windows.File;
 
 namespace SceneControllers
@@ -12,19 +14,28 @@ namespace SceneControllers
     public class ScoreManager : MonoBehaviour
     {
         public int playerScore;
+        public bool deathState;
         [SerializeField] private List<Initial> initials;
         [SerializeField] private TextMeshProUGUI scoreList;
         [SerializeField] private TextMeshProUGUI playerScoreText;
+        [SerializeField] private Button submitButton;
+        
 
         private void Awake()
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+
+        public void Initialize()
         {
             var path = Application.persistentDataPath + "/scores.sav";
             if (!File.Exists(path)) InitializeScores();
             LoadScores();
-            playerScore = 123456;
             DisplayScore(playerScore);
         }
-        private void DisplayScore(int score) => playerScoreText.text = score.ToString();
+        
+        private void DisplayScore(int score) => playerScoreText.text = score.ToString("000000");
         
         public void SaveScore()
         {
@@ -48,6 +59,7 @@ namespace SceneControllers
             stream.Close();
             
             LoadScores();
+            StartCoroutine(WaitToScene());
         }
         
         private void LoadScores()
@@ -64,7 +76,7 @@ namespace SceneControllers
             foreach (var score in scores.OrderByDescending(t => t.score))
             {
                 i++;
-                if (i > 7) break;
+                if (i > 9) break;
                 scoreList.text += score.initials[..3] + " - " + score.score.ToString("000000") + "\n";
             }
         }
@@ -84,6 +96,13 @@ namespace SceneControllers
             var stream = new FileStream(path, FileMode.Create);
             formatter.Serialize(stream, scores);
             stream.Close();
+        }
+
+        private IEnumerator WaitToScene()
+        {
+            submitButton.enabled = false;
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadScene(deathState ? "YouLost" : "Credits");
         }
         
     }
