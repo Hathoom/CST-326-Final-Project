@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Power_Up
 {
-    public class rotatingItems : MonoBehaviour
+    public class RotatingItems : MonoBehaviour
     {
         [SerializeField] private Vector3 rotation;
 

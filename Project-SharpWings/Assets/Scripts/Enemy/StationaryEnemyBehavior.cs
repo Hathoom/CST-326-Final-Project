@@ -15,6 +15,7 @@ namespace Enemy
         private float _fireTimer;
         public float minTargetDistance, maxTargetDistance;
         public Transform barrel;
+        private AudioSource AS;
 
         //death animation
         private bool isDead;
@@ -25,6 +26,7 @@ namespace Enemy
 
         private void Start()
         {
+            AS = GetComponent<AudioSource>();
             _fireTimer = Time.time;
             
             rBody = gameObject.GetComponent<Rigidbody>();
@@ -52,19 +54,19 @@ namespace Enemy
                 // look at player
                 transform.LookAt(targetPosition);
 
-                // fire
-                if (Time.time - _fireTimer > fireRate)
-                {
-                    _fireTimer = Time.time;
-                    var localTransform = barrel;
-                    var bullet = Instantiate(bulletPrefab,
-                        localTransform.position + localTransform.forward,
-                        bulletPrefab.transform.rotation * localTransform.rotation).GetComponent<EnemyBullet>();
-                    bullet.speed = bulletSpeed;
-                    bullet.direction = localTransform.forward;
-                    bullet.lifeTime = 5f;
-                    bullet.damage = 10;
-                }
+            // fire
+            if (Time.time - _fireTimer > fireRate)
+            {
+                AS.Play();
+                _fireTimer = Time.time;
+                var localTransform = barrel;
+                var bullet = Instantiate(bulletPrefab,
+                    localTransform.position + localTransform.forward,
+                    bulletPrefab.transform.rotation * localTransform.rotation).GetComponent<EnemyBullet>();
+                bullet.speed = bulletSpeed;
+                bullet.direction = localTransform.forward;
+                bullet.lifeTime = 5f;
+                bullet.damage = 10;
             }
         }
         

@@ -9,6 +9,7 @@ namespace Player
     {
         [Header("General")]
         public float maxHealth = 100f;
+        public float collisionDamage = 10f;
         private float _health;
 
         [Header("UI")] 
@@ -94,6 +95,14 @@ namespace Player
             
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Solid")||collision.gameObject.layer == LayerMask.NameToLayer("Enemy")) 
+            {
+                TakeDamage(collisionDamage);
+            }            
+        }
+
         public void GainHealth(float health)
         {
             _health += health;
@@ -112,7 +121,7 @@ namespace Player
             if (_health <= 0)
             {
                 // Die
-                SceneManager.LoadScene("Credits");
+                SceneManager.LoadScene("YouLost");
                 //Destroy(gameObject);
             }
         }
