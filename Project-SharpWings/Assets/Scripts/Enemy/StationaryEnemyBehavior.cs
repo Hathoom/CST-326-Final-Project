@@ -53,7 +53,7 @@ namespace Enemy
             
                 // look at player
                 transform.LookAt(targetPosition);
-
+            }
             // fire
             if (Time.time - _fireTimer > fireRate)
             {
