@@ -15,7 +15,7 @@ namespace Enemy
         private float _fireTimer;
         public float minTargetDistance, maxTargetDistance;
         public Transform barrel;
-        private AudioSource AS;
+        public AudioSource AS;
 
         //death animation
         private bool isDead;
@@ -29,6 +29,7 @@ namespace Enemy
 
         private void Start()
         {
+            bulletSpeed = 100;
             AS = GetComponent<AudioSource>();
             _fireTimer = Time.time;
             
