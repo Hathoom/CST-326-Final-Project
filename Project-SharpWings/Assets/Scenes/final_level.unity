@@ -9550,6 +9550,14 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1607816077053135613, guid: 92f326fc0a9dada47bc23f909eab97a8, type: 3}
+      propertyPath: bombSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607816077053135613, guid: 92f326fc0a9dada47bc23f909eab97a8, type: 3}
+      propertyPath: explosionLinger
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607816077053135613, guid: 92f326fc0a9dada47bc23f909eab97a8, type: 3}
       propertyPath: upgradeFireRate
       value: 10
       objectReference: {fileID: 0}
@@ -30410,6 +30418,10 @@ PrefabInstance:
       propertyPath: maxTargetDistance
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 3191486504921118166, guid: b624ee2affe4f1849a2216880978030a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3955448818472439062, guid: b624ee2affe4f1849a2216880978030a, type: 3}
       propertyPath: m_Name
       value: Turret Enemy (2)
@@ -33681,7 +33693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6332683675828961682, guid: c2d1d0e846c1093448ffd99b018385dc, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6332683675828961682, guid: c2d1d0e846c1093448ffd99b018385dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -96237,7 +96249,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1793430812
 PrefabInstance:
