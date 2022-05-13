@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+   public AudioClip soundClip;
+   public AudioSource AS;
+
    public void PlayGame()
    {
+      AS.clip = soundClip;
+      AS.Play();
       SceneManager.LoadScene("final_level");
    }
 

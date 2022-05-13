@@ -5,6 +5,9 @@ namespace SceneControllers
 {
     public class Initial : MonoBehaviour
     {
+
+        public AudioClip soundClip;
+        public AudioSource AS;
         private char _initial;
         private TextMeshProUGUI _initialText;
 
@@ -20,12 +23,16 @@ namespace SceneControllers
 
         public void UpInitial()
         {
+            AS.clip = soundClip;
+            AS.Play();
             _initial++;
             UpdateInitial();
         }
 
         public void DownInitial()
         {
+            AS.clip = soundClip;
+            AS.Play();
             _initial--;
             UpdateInitial();
         }

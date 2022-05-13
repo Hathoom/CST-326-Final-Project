@@ -15,6 +15,7 @@ namespace SceneControllers
     {
         public int playerScore;
         public bool deathState;
+        public AudioSource AS;
         [SerializeField] private List<Initial> initials;
         [SerializeField] private TextMeshProUGUI scoreList;
         [SerializeField] private TextMeshProUGUI playerScoreText;
@@ -57,7 +58,8 @@ namespace SceneControllers
             stream = new FileStream(path, FileMode.Create);
             formatter.Serialize(stream, list);
             stream.Close();
-            
+
+            AS.Play();
             LoadScores();
             StartCoroutine(WaitToScene());
         }
