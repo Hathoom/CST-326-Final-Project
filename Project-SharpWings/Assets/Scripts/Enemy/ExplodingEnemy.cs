@@ -22,6 +22,8 @@ namespace Enemy
         private CapsuleCollider _capsuleCollider;
         private string _currentState;
         private float _explosionTimer;
+
+        public GameObject Explosion;
         
         private void Awake()
         {
@@ -86,6 +88,8 @@ namespace Enemy
             _capsuleCollider.enabled = false;
             _explosionCollider.enabled = true;
             _currentState = "Exploding";
+            Instantiate(Explosion, transform.position, transform.rotation);
+            
         }
 
         private void OnTriggerStay(Collider other)
@@ -108,6 +112,7 @@ namespace Enemy
             if (health <= 0)
             {
                 // Die
+                Instantiate(Explosion, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
         }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4002167474565467165}
   - component: {fileID: 2211531266628831433}
   - component: {fileID: 2777977773194347768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: -3986419865181940853}
   - component: {fileID: 984476431586966247}
   - component: {fileID: 3126427974084648310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5033,6 +5033,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22b5788c40ac0248b80aa3705ea035e, type: 3}
       propertyPath: m_Name
       value: Rubber Band
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22b5788c40ac0248b80aa3705ea035e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22b5788c40ac0248b80aa3705ea035e, type: 3}
