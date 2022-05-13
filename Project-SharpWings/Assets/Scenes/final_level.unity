@@ -9522,6 +9522,14 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1607816077053135613, guid: 92f326fc0a9dada47bc23f909eab97a8, type: 3}
+      propertyPath: bombSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607816077053135613, guid: 92f326fc0a9dada47bc23f909eab97a8, type: 3}
+      propertyPath: explosionLinger
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607816077053135613, guid: 92f326fc0a9dada47bc23f909eab97a8, type: 3}
       propertyPath: upgradeFireRate
       value: 10
       objectReference: {fileID: 0}
