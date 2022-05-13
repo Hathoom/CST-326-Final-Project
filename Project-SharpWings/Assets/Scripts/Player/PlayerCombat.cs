@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 namespace Player
@@ -18,7 +17,7 @@ namespace Player
         [SerializeField] private GameObject bombPrefab;
         [SerializeField] private Transform bombExtrudePoint;
         [SerializeField] private float explosionDamage = 1f, bombSpeed = 20f;
-        [SerializeField] private float explosionDelay = 1f, explosionRadius = 4f, explosionForce = 700f;
+        [SerializeField] private float explosionDelay = 1f, explosionRadius = 4f, explosionLinger = 3f;
         [SerializeField] private int startingBombCount;
         private int _bombCount;
 
@@ -116,8 +115,10 @@ namespace Player
 
         private void FireDoubleStaple()
         {
-            FireSingleStaple(bulletExtrudePoint.position + (transform.right * 0.5f));
-            FireSingleStaple(bulletExtrudePoint.position + (transform.right * -0.5f));
+            var position = bulletExtrudePoint.position;
+            var right = transform.right;
+            FireSingleStaple(position + (right * 0.5f));
+            FireSingleStaple(position + (right * -0.5f));
         }
         
         private void ChangeShootSound(AudioClip audioClip) => _shootAudio.clip = audioClip;
@@ -132,8 +133,8 @@ namespace Player
             var bomb = Instantiate(bombPrefab, bombExtrudePoint.position, Quaternion.identity).GetComponent<Bomb>();
             bomb.speed = bombSpeed;
             bomb.damage = explosionDamage;
-            bomb.force = explosionForce;
             bomb.delay = explosionDelay;
+            bomb.linger = explosionLinger;
             bomb.radius = explosionRadius;
             bomb.direction = transform.forward;
             bomb.OnEnemyDeath += AddScore;
